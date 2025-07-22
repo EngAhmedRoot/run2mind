@@ -1,0 +1,103 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+{% block title %}
+
+        {% trans "Update User Group" %}
+
+{% endblock %}
+
+{% block content_area %}
+<!-- BEGIN CONTENT AREA  --> 
+
+<div id="content" class="main-content">
+    <div class="layout-px-spacing">
+        <div class="contact-us layout-top-spacing">
+            <div class="cu-contact-section" style="display: block;">
+                <div class="contact-form">
+                    <form  method="post" class="">
+                        <div class="cu-section-header mb-5">
+
+                            <h3 style="color:#1f9f70;font-weight: bold;">{% trans 'Update User Group' %}</h3>
+                            
+                         
+                        </div>
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+
+
+						<div class="row mb-3"> 
+							<div class="col-3 input-fields">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1f9f70" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+												<circle cx="12" cy="7" r="4"></circle>
+											</svg>
+										</span>
+									</div>
+										{{form.username.errors}}
+										{{form.username}}
+								</div>
+							</div>
+							<div class="col-3 input-fields">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign">
+												<circle cx="12" cy="12" r="4"></circle>
+												<path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+											</svg>
+										</span>
+									</div>
+										{{form.email.errors}}
+										{{form.email}}
+								</div>
+							</div>
+							<div class="col-4 input-fields">
+								<div class="input-group" style="height:45px; width:100%; font-size: 16px;">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1f9f70" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+												<circle cx="12" cy="7" r="4"></circle>
+											</svg>
+										</span>
+									</div>
+										{{form.group.errors}}
+										{{form.group}}
+								</div>
+							</div>
+ 
+							
+						</div>
+								
+						
+						
+						
+						
+						
+
+						<div class="row  mt-5">
+							<div class="col-sm-2 col-2 input-fields" >
+								<button class="btn btn-primary mb-2" style="width: 100%; text-align: center;">{% trans 'Save' %}</button>
+							</div>
+							<div  class="col-sm-2 col-2 input-fields" >
+								<button class="btn btn-warning mb-2" style="width: 100%; text-align: center;" onclick="location.href='/{{LANGUAGE_CODE}}/customusergroup/list';">
+								{% trans "Cancel" %}
+								</button>
+							</div>
+						</div>
+					</form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- END CONTENT AREA   -->
+
+{% endblock %}

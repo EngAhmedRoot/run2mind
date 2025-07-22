@@ -1,0 +1,68 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+
+
+{% block title %} {% trans "Group Details" %} {% endblock %}
+
+{% block content_area %}
+ 
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="contact-us layout-top-spacing">
+
+                   <div class="cu-contact-section" style="display: block;">
+
+                        <div class="contact-form">
+                           
+
+                                <div class="cu-section-header  mb-5">
+                                    <h3 style="color:#1f9f70;font-weight: bold;">Group Details</h3>
+
+                                </div>
+
+								    <div class="row mb-4">
+										<div class="col-4  input-fields">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<span class="input-group-text" id="nameIcon">
+														<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1f9f70" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+															<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+															<circle cx="12" cy="7" r="4"></circle>
+														</svg>
+													</span>
+												</div>
+												<input type="text" style="color:#1f9f70;" class="form-control" placeholder="Group Name" value="{{ object.name }}" aria-describedby="nameIcon" disabled>
+											</div>
+										</div>
+									</div>
+
+									<div class="row  mt-5">
+										<div class="col-sm-2 col-2 input-fields" >
+											<button style="width: 100%; text-align: center;" class="btn btn-primary mb-2" onclick="location.href='/{{LANGUAGE_CODE}}/customgroups/update/{{object.id}}'">
+												{% trans 'Edit' %}
+											</button>
+										</div>
+										<div class="col-sm-2 col-2 input-fields" >
+											<button style="width: 100%; text-align: center;" class="btn btn-warning mb-2" onclick="location.href='/{{LANGUAGE_CODE}}/customgroups/list'">
+												{% trans 'Back to List' %}
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!--  END CONTENT AREA  -->
+			</div>
+			<!-- END MAIN CONTAINER -->
+			<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->   
+			<!-- END GLOBAL MANDATORY SCRIPTS -->
+			<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+			<!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+{% endblock %}

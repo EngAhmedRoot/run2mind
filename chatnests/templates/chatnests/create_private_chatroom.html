@@ -1,0 +1,59 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {% trans "Private Chat" %} {% endblock %}
+
+{% block content_area %}
+ 
+<!--  BEGIN CONTENT AREA  -->
+<div class="chat-container">
+  <h2>Private Chat with {{ receiver.username }}</h2>
+  
+  <div id="chat-box" class="chat-box">
+    <!-- عرض الرسائل السابقة هنا -->
+    <div id="messages">
+      {% for message in room.messages.all %}
+      <div class="message {% if message.sender == sender %}sent{% else %}received{% endif %}">
+        <p><strong>{{ message.sender.username }}:</strong> {{ message.content }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- نموذج إرسال الرسائل -->
+  <form id="chat-form" method="POST" action="{% url 'chatnests:send_message' room_id=room.id %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <textarea name="message" id="message-input" class="form-control" rows="3" placeholder="Write your message..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send</button>
+  </form>
+</div>
+
+<style>
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.chat-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+.message.sent {
+    text-align: right;
+    color: blue;
+}
+.message.received {
+    text-align: left;
+    color: green;
+}
+</style>
+
+{% endblock %}
+

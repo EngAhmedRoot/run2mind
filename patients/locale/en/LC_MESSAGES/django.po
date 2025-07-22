@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-22 18:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\patients\forms.py:13
+msgid "Select Doctor User"
+msgstr ""
+
+#: .\patients\forms.py:14
+msgid "--- Choose User ---"
+msgstr ""
+
+#: .\patients\forms.py:25
+msgid "Patient Name"
+msgstr ""
+
+#: .\patients\forms.py:27
+msgid "Job"
+msgstr ""
+
+#: .\patients\forms.py:30
+msgid "Birthdate"
+msgstr ""
+
+#: .\patients\forms.py:31 .\patients\templates\patients\patients_list.html:102
+msgid "Phone"
+msgstr ""
+
+#: .\patients\forms.py:32
+msgid "Mobile"
+msgstr ""
+
+#: .\patients\forms.py:33
+msgid "Email"
+msgstr ""
+
+#: .\patients\forms.py:35
+msgid "Details"
+msgstr ""
+
+#: .\patients\models.py:10 .\patients\templates\patients\patients_list.html:88
+msgid "Male"
+msgstr ""
+
+#: .\patients\models.py:11 .\patients\templates\patients\patients_list.html:94
+msgid "Female"
+msgstr ""
+
+#: .\patients\models.py:23
+msgid "gender"
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:22
+msgid "Job: "
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:26
+#: .\patients\templates\patients\patients_detail.html:65
+msgid "Birthdate: "
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:31
+#: .\patients\templates\patients\patients_detail.html:69
+msgid "Phone: "
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:38
+msgid "View Profile"
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:43
+#: .\patients\templates\patients\patients_detail.html:77
+msgid "Send Message"
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:65
+#: .\patients\templates\patients\_patients_list_partial.html:77
+msgid "First"
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:127
+#: .\patients\templates\patients\_patients_list_partial.html:139
+msgid "Last"
+msgstr ""
+
+#: .\patients\templates\patients\_patients_list_partial.html:150
+msgid "No patients found matching your filters."
+msgstr ""
+
+#: .\patients\templates\patients\patients_detail.html:6
+msgid "Patient Detail"
+msgstr ""
+
+#: .\patients\templates\patients\patients_detail.html:19
+msgid "PATIENT PROFILE"
+msgstr ""
+
+#: .\patients\templates\patients\patients_detail.html:26
+msgid "Patient Details"
+msgstr ""
+
+#: .\patients\templates\patients\patients_detail.html:55
+msgid "PATIENT:"
+msgstr ""
+
+#: .\patients\templates\patients\patients_detail.html:59
+msgid "Job:"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:6
+msgid "Patients"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:18
+msgid "Meet our Patients"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:34
+msgid "PATIENTS Filter"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:56
+#: .\patients\templates\patients\patients_list.html:62
+#: .\patients\templates\patients\patients_list.html:186
+msgid "Filter"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:83
+msgid "Gender"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:114
+msgid "Age"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:124
+msgid "Apply"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:129
+msgid "Clear"
+msgstr ""
+
+#: .\patients\templates\patients\patients_list.html:145
+msgid "Search Patients"
+msgstr ""

@@ -1,0 +1,27 @@
+// font-weight 300
+@font-face {
+    font-family: "montserrat-light";
+    src: url('../../assets/font/ArbFONTS-Montserrat-Arabic-Light.ttf')
+}
+// font-weight 400
+@font-face {
+    font-family: "montserrat-reg";
+    src: url('../../assets/font/ArbFONTS-Montserrat-Arabic-Regular.ttf')
+}
+  
+  //font-weight 500
+  @font-face {
+    font-family: "montserrat-med";
+    src: url('../../assets/font/ArbFONTS-Montserrat-Arabic-Medium.ttf');
+  }
+  
+  //font-weight 600
+  @font-face {
+    font-family: "montserrat-semibold";
+    src: url('../../assets/font/ArbFONTS-Montserrat-Arabic-SemiBold.ttf');
+  }
+  //font-weight 700
+  @font-face {
+    font-family: "montserrat-bold";
+    src: url('../../assets/font/ArbFONTS-Montserrat-Arabic-Bold.ttf');
+  }

@@ -1,0 +1,213 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {% trans "Dashboard" %} {% endblock %}
+
+{% block content_area %}
+   <!-- start hero section -->
+    <div class="container">
+        <div class="hero">
+            <div class="row justify-content-between align-items-start g-4 g-md-4 flex-lg-row flex-column-reverse">
+                <div class="col-lg-6 col-12">
+                    <div class="left">
+                        <div class="d-flex align-items-center chooes">
+                            <h4 class="fw-700">{% trans "NOW YOU CANE CHOOSE" %} </h4>
+                            <p class="success">RUN2MIND</p>
+                        </div>
+                        <h1 class="my-2 my-md-4 fw-700 py-md-3">
+                            {% trans "And talk to a psychiatrist Or psychiatrist in all Privacy and safety!" %}
+                        </h1>
+                        <h5 class="fw-700">
+                            {% trans "It’s a complete happiness toolbox. Get matched with a qualified Therapist within a minute." %}
+                        </h5>
+                        <div class="mt-3 mt-md-5 buttons d-flex">
+                            <button class="btn-main light">{% trans "Chat Now" %}</button>
+                            <button class="btn-main white">{% trans "Book Appoiment" %}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="right">
+                        <img src="/assets/run2mind/images/hero.png" alt="hero" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end hero section -->
+
+    <!-- start connect section -->
+    <div class="connect">
+        <div class="container">
+            <h3 class="fw-700">{% trans "WELCOME" %}</h3>
+            <h2 class="fw-700 mt-3 title">
+                {% trans "With us, we connect you with the best Doctors and psychotherapists for a better life" %}
+            </h2>
+            <div class="images d-flex justify-content-center mt-2 mt-md-5">
+                <div class="img1">
+                    <img src="/assets/run2mind/images/connent1.png" alt="hero" class="w-100">
+                </div>
+                <div class="img2">
+                    <img src="/assets/run2mind/images/connent2.png" alt="hero" class="w-100">
+                </div>
+            </div>
+            <div class="d-flex align-items-center chooes mt-3 mt-md-5">
+                <h4 class="fw-700">{% trans "WHY" %}</h4>
+                <p class="success">RUN2MIND</p>
+            </div>
+            <h2 class="text-start mt-3 fw-700 mb-4 mb-md-5">
+                {% trans "We promise you professionalism Complete confidentiality and security" %}
+            </h2>
+            <div class="icons">
+                <div class="row justify-content-between align-items-center g-md-5 g-3">
+                    <div class="col-4">
+                        <div class="item">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item1.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Professional Team" %}</h6>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item2.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Follow Up" %}</h6>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item3.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Privacy & Security" %}</h6>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item4.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Mental Health" %}</h6>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item5.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Mult - Departments" %}</h6>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item6.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Easy Subscribe & Pay" %}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end connect section -->
+
+    <!-- start talk section -->
+    <div class="talk">
+        <div class="container">
+            <div class="row justify-content-between align-items-center g-3 g-lg-5 flex-column-reverse flex-md-row">
+                <div class="col-12 col-md-6 ">
+                    <div class="left">
+                        <h2 class="fw-700 one pb-2">{% trans "Come &" %}</h2>
+                        <h2 class="fw-600 title">
+                            {% trans "Talk to our" %} <br> {% trans "Psychiatristes" %}
+                        </h2>
+                        <p class="my-3 fw-700">
+                            {% trans "Meet our best doctors and specialists to make your life better" %}
+                        </p>
+                        <p class="mt-2 mt-md-4 fw-700">
+                           {% trans "You can count on us for a better life with sound mental health, safely and Securty Make your life happier with good mental health" %}
+                        </p>
+                        <button class="btn-main light mt-3 mt-md-5">{% trans "Talk now" %}</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="right">
+                        <img src="/assets/run2mind/images/talk.png" alt="talk" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end talk section -->
+
+    <!-- start work section -->
+    <div class="work">
+        <div class="container">
+            <div class="icons">
+                <div class="text pb-lg-4">
+                    <h2 class="text-center fw-700">{% trans "how" %} run2mind {% trans "work" %}</h2>
+                    <h2 class="text-center fw-600 h2 pb-3">{% trans "By esay way" %}</h2>
+                </div>
+                <div class="row justify-content-between align-items-center g-3 pt-lg-4">
+                    <div class="col-4">
+                        <div class="item item1">
+                            <h6>{% trans "Chose Expert" %}</h6>
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/work-item1.svg" alt="item1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item item2">
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item5.svg" alt="item1">
+                            </div>
+                            <h6>{% trans "Pay" %}</h6>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <h6>{% trans "Start Session" %}</h6>
+                            <div class="bg">
+                                <img src="/assets/run2mind/images/connect-item6.svg" alt="item1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end work section -->
+
+    <!-- start team section -->
+    <div class="team">
+        <div class="container">
+            <div class="row justify-content-between g-3 g-md-5  flex-column-reverse flex-lg-row">
+                <div class="col-12 col-lg-6">
+                    <div class="left">
+                        <div class="d-flex align-items-center chooes mt-3">
+                            <h4 class="fw-700">{% trans "WITH OUR TEAM" %}</h4>
+                            <p class="success">RUN2MIND</p>
+                        </div>
+                        <h2 class="my-3 my-md-4 fw-700">
+                            {% trans "Make your life happier With good mental health" %}
+                        </h2>
+                        <button class="btn-main light mt-2 mt-md-4">{% trans "Get Started" %}</button>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="right">
+                        <img src="/assets/run2mind/images/team.png" alt="talk" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end team section -->
+
+{% endblock %}

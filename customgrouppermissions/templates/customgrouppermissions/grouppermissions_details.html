@@ -1,0 +1,114 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+{% block title %}
+        {% trans "Detail Group Permission" %}
+{% endblock %}
+
+{% block content_area %}
+<!-- BEGIN CONTENT AREA  --> 
+
+<div id="content" class="main-content">
+    <div class="layout-px-spacing">
+        <div class="contact-us layout-top-spacing">
+            <div class="cu-contact-section" style="display: block;">
+                <div class="contact-form">
+                        <div class="cu-section-header mb-5">
+                            <h3 style="color:#1f9f70;font-weight: bold;">{% trans 'Details Group Permission' %}</h3>  
+                        </div>
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+						<div class="row mb-3"> 
+							<div class="col-5 input-fields">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1f9f70" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+												<circle cx="12" cy="7" r="4"></circle>
+											</svg>
+										</span>
+									</div>
+										<input type="text" style="color:#1f9f70;" class="form-control" placeholder="Group Name" value="{{ group.name }}" aria-describedby="nameIcon" disabled>		 
+								</div>
+							</div>							
+						</div>	
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Model</th>
+									<th>Create</th>
+									<th>Update</th>
+									<th>Delete</th>
+									<th>View</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for model, permissions in grouped_permissions.items %}
+									<tr>
+										<td>{{ model }}</td>
+										<td>
+											{% for permission in permissions.add %}
+												<label>
+													<input type="checkbox" name="permissions" disabled="disabled" value="{{ permission.id }}" {% if permission in group.permissions.all %} checked {% endif %} />
+													{# permission.codename #} Create<br>
+												</label>
+											{% empty %}
+												No-Permission
+											{% endfor %}
+										</td>
+										<td>
+											{% for permission in permissions.change %}
+												<label>
+													<input type="checkbox" name="permissions" disabled="disabled" value="{{ permission.id }}" {% if permission in group.permissions.all %} checked {% endif %} />
+													{# permission.codename #} Update<br>
+												</label>
+											{% empty %}
+												No-Permission
+											{% endfor %}
+										</td>
+										<td>
+											{% for permission in permissions.delete %}
+												<label>
+													<input type="checkbox" name="permissions" disabled="disabled" value="{{ permission.id }}" {% if permission in group.permissions.all %} checked {% endif %} />
+													{# permission.codename #} Delete<br>
+												</label>
+											{% empty %}
+												No-Permission
+											{% endfor %}
+										</td>
+										<td>
+											{% for permission in permissions.view %}
+												<label>
+													<input type="checkbox" name="permissions" disabled="disabled" value="{{ permission.id }}" {% if permission in group.permissions.all %} checked {% endif %} />
+													{# permission.codename #} View<br>
+												</label>
+											{% empty %}
+												No-Permission
+											{% endfor %}
+										</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						<div class="row  mt-5">
+							<div class="col-sm-2 col-2 input-fields" >
+								<button style="width: 100%; text-align: center;" class="btn btn-primary mb-2" onclick="location.href='/{{LANGUAGE_CODE}}/customgrouppermissions/update/{{object.id}}'">
+									{% trans 'Edit' %}
+								</button>
+							</div>
+							<div class="col-sm-2 col-2 input-fields" >
+								<button style="width: 100%; text-align: center;" class="btn btn-warning mb-2" onclick="location.href='/{{LANGUAGE_CODE}}/customgrouppermissions/list'">
+									{% trans 'Back to List' %}
+								</button>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END CONTENT AREA   -->
+
+{% endblock %}

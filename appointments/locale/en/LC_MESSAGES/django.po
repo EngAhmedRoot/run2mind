@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-04 20:05+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\appointments\forms.py:13
+msgid "Select Patient"
+msgstr ""
+
+#: .\appointments\forms.py:18
+msgid "Select Expert"
+msgstr ""
+
+#: .\appointments\forms.py:24
+msgid "Select Expertsession"
+msgstr ""
+
+#: .\appointments\forms.py:35
+msgid "Session Date"
+msgstr ""
+
+#: .\appointments\forms.py:40
+msgid "Add any notes..."
+msgstr ""
+
+#: .\appointments\models.py:11
+msgid "Pending"
+msgstr ""
+
+#: .\appointments\models.py:12
+msgid "Confirmed"
+msgstr ""
+
+#: .\appointments\models.py:13
+msgid "Completed"
+msgstr ""
+
+#: .\appointments\models.py:14
+msgid "Cancelled"
+msgstr ""
+
+#: .\appointments\models.py:18
+msgid "Expertsessions"
+msgstr ""
+
+#: .\appointments\models.py:20
+msgid "Session DateTime"
+msgstr ""
+
+#: .\appointments\models.py:23
+#: .\appointments\templates\appointments\appointments_add.html:133
+msgid "Status"
+msgstr ""
+
+#: .\appointments\models.py:24
+msgid "Notes"
+msgstr ""
+
+#: .\appointments\models.py:27
+msgid "Created At"
+msgstr ""
+
+#: .\appointments\templates\appointments\_appointments_list_partial.html:22
+msgid "Job: "
+msgstr ""
+
+#: .\appointments\templates\appointments\_appointments_list_partial.html:26
+#: .\appointments\templates\appointments\appointments_detail.html:77
+msgid "Birthdate: "
+msgstr ""
+
+#: .\appointments\templates\appointments\_appointments_list_partial.html:31
+#: .\appointments\templates\appointments\appointments_detail.html:83
+msgid "Phone: "
+msgstr ""
+
+#: .\appointments\templates\appointments\_appointments_list_partial.html:40
+msgid "View Profile"
+msgstr ""
+
+#: .\appointments\templates\appointments\_appointments_list_partial.html:45
+#: .\appointments\templates\appointments\appointments_detail.html:93
+msgid "Send Message"
+msgstr ""
+
+#: .\appointments\templates\appointments\_appointments_list_partial.html:54
+msgid "No appointments found matching your filters."
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:6
+#: .\appointments\templates\appointments\appointments_add.html:19
+#: .\appointments\templates\appointments\appointments_add.html:26
+msgid "Add Appointment"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:52
+#: .\appointments\templates\appointments\appointments_delete.html:43
+msgid "Patient Name"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:62
+msgid "Expert Name"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:70
+msgid "Choose ExpertSession"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:78
+msgid "Choose Duration"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:80
+msgid "--- Durations ---"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:88
+msgid "Select Available Time"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:90
+msgid "--- Choose Time ---"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:97
+msgid "session_date"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:105
+msgid "Select Languages"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:107
+msgid "--- Languages ---"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:115
+msgid "Session Price"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:125
+msgid "notes"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:153
+#: .\appointments\templates\appointments\appointments_delete.html:226
+msgid "Cancel"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_add.html:158
+msgid "Save"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:4
+#: .\appointments\templates\appointments\appointments_delete.html:17
+msgid "Delete Appointment"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:18
+msgid "Are you sure you want to delete the following Appointment ?"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:28
+msgid "Doctor Name"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:59
+msgid "Booking Type"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:80
+msgid "Doctor Schedule"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:96
+msgid "Appointment Date"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:111
+msgid "Visit Type"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:132
+msgid "Max Patient"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:147
+msgid "Order Num"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:164
+msgid "Exception"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:182
+msgid "Appointment Status"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:205
+msgid "Appointment Details"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:221
+msgid "UnConfirmed"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_delete.html:231
+msgid "Delete"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_detail.html:6
+msgid "Patient Detail"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_detail.html:19
+msgid "Patient PROFILE"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_detail.html:26
+msgid "Patient Details"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:6
+#: .\appointments\templates\appointments\appointments_list.html:17
+msgid "Appointmets"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:24
+msgid "My Appointmets"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:56
+#: .\appointments\templates\appointments\appointments_list.html:62
+#: .\appointments\templates\appointments\appointments_list.html:229
+msgid "Filter"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:79
+msgid "Availability"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:89
+msgid "Emergency"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:90
+msgid "(Strat in 20 Min)"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:100
+msgid "Duration"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:105
+msgid "30 Min"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:111
+msgid "60 Min"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:119
+msgid "Doctor Gender"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:124
+msgid "Male"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:130
+msgid "Female"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:138
+msgid "Language"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:143
+msgid "Arabic"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:149
+msgid "English"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:157
+msgid "Price"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:167
+msgid "Apply"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:172
+msgid "Clear"
+msgstr ""
+
+#: .\appointments\templates\appointments\appointments_list.html:188
+msgid "Search Appointmets"
+msgstr ""
+
+#: .\appointments\views.py:147
+msgid "The appointment has been successfully created!"
+msgstr ""
+
+#: .\appointments\views.py:273
+msgid "Invalid action."
+msgstr ""

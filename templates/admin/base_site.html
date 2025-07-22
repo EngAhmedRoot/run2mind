@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+
+{% block branding %}
+    {{ block.super }}
+    
+    <div class="language-switcher" style="display:inline-block; margin-left:20px;">
+        <form action="{% url 'set_language' %}" method="post" id="language-form" style="display: inline;">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{% url 'admin:index' %}">
+            <select name="language" onchange="document.getElementById('language-form').submit();" style="padding: 4px; border-radius: 4px;">
+                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                <option value="ar" {% if LANGUAGE_CODE == 'ar' %}selected{% endif %}>العربية</option>
+            </select>
+        </form>
+    </div>
+{% endblock %}
+

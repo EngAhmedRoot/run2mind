@@ -1,0 +1,70 @@
+$main-color: #673191;
+$secondary-color: #10BBB3;
+$dark-gray: #F4F4F4 ;
+$light-gray: #F3F6FB ;
+$success-color: #10BBB3;
+$white-color: #FFFFFF;
+$black-color: #000000;
+$light-black: #797878 ;
+$red-color: #FF000E ;
+$light-color: #D3D3D3;
+
+
+// width container
+$container-width-sm: 95%;
+$container-width-md: 85%;
+$container-width-lg: 80%;
+$container-width-xl: 75%;
+
+//breakpoint
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-4xl: 2000px;
+
+
+
+// // =====================  breakpoint (lg) =================
+@media screen and (max-width: $breakpoint-lg) {
+    .container {
+        width: $container-width-lg;
+    }
+}
+
+// // =====================  breakpoint (md) =================
+@media screen and (max-width: $breakpoint-md) {
+    .container {
+        width: $container-width-md;
+    }
+}
+
+// // =====================  breakpoint (sm) =================
+@media screen and (max-width: $breakpoint-sm) {
+    h1 {
+        font-size: 20px !important;
+    }
+
+    h2 {
+        font-size: 17px !important;
+    }
+
+    h3 {
+        font-size: 16px !important;
+    }
+
+    h4,
+    h5 {
+        font-size: 15px !important;
+    }
+
+    span,
+    p,
+    h6,a,button {
+        font-size: 12px !important;
+    }
+
+    .container {
+        width: $container-width-sm;
+    }
+}

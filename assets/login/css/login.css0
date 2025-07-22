@@ -1,0 +1,98 @@
+body{
+	letter-spacing:2px;
+	padding:25px;
+	font-family: 'Poiret One', cursive;
+	font-weight: 900;
+}
+
+.form{
+    color:white;
+    width:40%;
+	height:35px;
+	padding:11px;
+	font-size:25px;
+	box-shadow:15px 15px 25px black;
+	border:2px solid #005491;
+	background:#005491;
+    border-radius:0 100px 0 100px ;
+    animation:example 1s linear alternate;
+}
+
+@keyframes example {
+	100%{
+		transform:translate3d(0px,0px,0px0px,);
+	}
+
+
+	0%{
+		transform:translate3d(210px,0px,0px);
+	}
+}
+
+
+.form-control{
+	width:70%;
+	border-bottom:15px;
+	border: solid #005491;
+	box-shadow:9px 9px 25px black;
+    margin-bottom:20px;
+    margin-left:10px;
+    border-radius: 30px 0 30px 0;
+    padding:5px 50px 5px 50px;
+}
+
+.form-control:focus{
+	border: solid red;
+	box-shadow:15px 15px 25px black;
+}
+
+
+#login{
+	background:white;
+	box-shadow:9px 9px 25px black;
+	text-decoration:none;
+	border:2px solid #005491;
+	padding:5px 25px 5px 25px;
+	font-size:15px;
+	color:black;
+    border-radius: 50px 0 50px 0;
+}
+
+#login:focus{
+	border:2px solid red;
+	box-shadow:9px 9px 25px black;
+	box-shadow:15px 15px 25px black;
+}
+
+#box{
+	background:white;
+	border:2px solid #005491;
+	padding:55px;
+	box-shadow:9px 9px 25px black;
+    border-radius: 150px 0 150px 0;
+    width:25%;
+    animation:exam 1s linear alternate;
+}
+
+@keyframes exam {
+	100%{
+		transform:translate3d(0px,0px,0px)
+	}
+
+	0%{
+		transform:translate3d(-210px,0px,0px)
+	}
+}
+
+label{
+	box-shadow:9px 9px 25px black;
+	background:#005491;
+	color:white;
+	padding:10px 50px 10px 50px;
+	border-radius: 50px 0 50px 0;
+	width:100%;
+}
+
+input[type=text], input[type=password]{
+  outline:none;
+}

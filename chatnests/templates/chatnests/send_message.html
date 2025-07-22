@@ -1,0 +1,101 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {% trans "Send Message" %} {% endblock %}
+
+{% block content_area %}
+ 
+<!--  BEGIN CONTENT AREA  -->
+<div class="experts-page mb-5">
+        <!-- start hero section -->
+        <div class="experts-hero ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center mb-1 mb-md-2">
+                            <h4 class="fs-4 fw-bold cl-light">
+                                 {% trans "Send Message" %}
+                            </h4>
+                            <p class="success fs-8 mx-2 mx-lg-3">RUN2MIND</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end hero section -->
+
+
+        <!-- Start Experts Main Sec -->
+        <div class="experts-main">
+            <div class="container">
+                <div class="row">                  
+                    <h2 style="text-align: center;">
+                        {% trans "Send a Message to" %}
+						<span class="fs-2 fw-600 cl-secondary">
+						
+						{% if LANGUAGE_CODE == "ar" %}
+							{{ receiver_name_ar }}
+						{% else %}
+							{{ receiver_name_en }}
+						{% endif %}
+						
+						</span>
+                    </h2>
+
+                    <!-- استخدام div بدلاً من form -->
+                    <div id="sendMessageDiv" class="mt-4">
+                        {% csrf_token %}
+                        <input type="hidden" id="receiverId" value="{{ receiver_id }}" />
+                        <!-- استخدام textarea بدلاً من form.as_p -->
+                        <div class="form-group">
+                            
+                            <textarea id="messageContent" name="content" class="form-control" rows="4"></textarea>
+                        </div>
+						
+                        <button id="sendMessageBtn" class="mb-2 mt-4 btn success btn-rounded" style="color:white; width:150px; height:50px; display: block; margin: 0 auto;"  >{% trans "Send Message" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Experts Main Sec -->
+
+    </div>
+</div>
+<!--  END CONTENT AREA  -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    var receiverId = $("#receiverId").val(); // لو انت حابب تحتفظ بيه لأي حاجة
+
+    $('#sendMessageBtn').on('click', function (e) {
+        e.preventDefault();
+        
+        var formData = new FormData();
+        formData.append('content', $('#messageContent').val());  
+        formData.append('csrfmiddlewaretoken', $('input[name="csrfmiddlewaretoken"]').val());
+
+        var currentPath = window.location.pathname;  // خلاص احنا فاتحين صفحة send_message/receiver_id/
+        
+        $.ajax({
+            url: currentPath,  // ابعت على نفس الصفحة المفتوحة
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                $('#messageContent').val('');
+                console.log("Message sent successfully!");
+            },
+            error: function (xhr) {
+                console.error("Error: " + xhr.responseText);
+            }
+        });
+    });
+});
+
+</script>
+
+{% endblock %}

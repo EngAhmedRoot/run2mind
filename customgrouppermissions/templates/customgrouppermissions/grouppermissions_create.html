@@ -1,0 +1,197 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+{% block title %}
+    {% if 'add' in request.path %}
+        {% trans "Add Group Permissions" %}
+    {% else %}
+        {% trans "Update Group Permissions" %}
+    {% endif %}
+{% endblock %}
+
+{% block content_area %}
+<!-- BEGIN CONTENT AREA  --> 
+
+<div id="content" class="main-content">
+    <div class="layout-px-spacing">
+        <div class="contact-us layout-top-spacing">
+            <div class="cu-contact-section" style="display: block;">
+                <div class="contact-form">
+                    <form  method="post" class="">
+                        <div class="cu-section-header mb-2">
+                            {% if 'create' in request.path %}
+                                <h3 style="color:#1f9f70;font-weight: bold;">{% trans 'New Group Permissions' %}</h3>
+                            {% else %}
+                                <h3 style="color:#1f9f70;font-weight: bold;">{% trans 'Update Group Permissions' %}</h3>
+                            {% endif %}
+                         
+                        </div>
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+						<div class="row"> 
+							<div class="col-3">
+                            <label class="input-group-label">{% trans 'Group Name' %}</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <svg  class="input-group-svg"  xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+											<path d="M9 11l3 3L22 4"></path><circle cx="12" cy="12" r="10"></circle>
+										</svg>
+                                    </span>
+                                </div>
+                                {{ form.name }}
+                            </div>
+                            <div class="input-group-error">{{ form.name.errors }}</div>
+                        </div>
+							<div class="col-6">
+							</div>
+							<!-- Select All / Unselect All Buttons -->
+							<div class="col-3">
+								<button type="button" class="btn btn-success" onclick="selectAllCheckboxes(true);">
+									{% trans 'Select All' %}
+								</button>
+								<button type="button" class="btn btn-danger" onclick="selectAllCheckboxes(false);">
+									{% trans 'Unselect All' %}
+								</button>
+							</div>
+						</div>	
+						
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Model</th>
+								<th>
+									<label>
+									
+										<input type="checkbox" id="select-all-create" onclick="toggleAllCheckboxes(this, '.create-checkbox');" />
+										Create
+									</label>
+								</th>
+								<th>
+									<label>
+										<input type="checkbox" id="select-all-update" onclick="toggleAllCheckboxes(this, '.update-checkbox');" />
+										Update
+									</label>
+								</th>
+								<th>
+									<label>
+										<input type="checkbox" id="select-all-delete" onclick="toggleAllCheckboxes(this, '.delete-checkbox');" />
+										Delete
+									</label>
+								</th>
+								<th>
+									<label>
+										<input type="checkbox" id="select-all-view" onclick="toggleAllCheckboxes(this, '.view-checkbox');" />
+										View
+									</label>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for model, permissions in grouped_permissions.items %}
+								<tr>
+									<td>
+										<label>
+											<input type="checkbox" class="row-checkbox" onclick="toggleRowCheckboxes(this);" />
+											{{ model }}
+										</label>
+									</td>
+									<td>
+										{% for permission in permissions.add %}
+											<label>
+												<input type="checkbox" name="permissions" value="{{ permission.id }}" {% if permission in form.instance.permissions.all %} checked {% endif %} class="create-checkbox" />
+												{# permission.codename #} Create<br>
+											</label>
+										{% empty %}
+											No-Permission
+										{% endfor %}
+									</td>
+									<td>
+										{% for permission in permissions.change %}
+											<label>
+												<input type="checkbox" name="permissions" value="{{ permission.id }}" {% if permission in form.instance.permissions.all %} checked {% endif %} class="update-checkbox" />
+												{# permission.codename #} Update<br>
+											</label>
+										{% empty %}
+											No-Permission
+										{% endfor %}
+									</td>
+									<td>
+										{% for permission in permissions.delete %}
+											<label>
+												<input type="checkbox" name="permissions" value="{{ permission.id }}" {% if permission in form.instance.permissions.all %} checked {% endif %} class="delete-checkbox" />
+												{# permission.codename #} Delete<br>
+											</label>
+										{% empty %}
+											No-Permission
+										{% endfor %}
+									</td>
+									<td>
+										{% for permission in permissions.view %}
+											<label>
+												<input type="checkbox" name="permissions" value="{{ permission.id }}" {% if permission in form.instance.permissions.all %} checked {% endif %} class="view-checkbox" />
+												{# permission.codename #} View<br>
+											</label>
+										{% empty %}
+											No-Permission
+										{% endfor %}
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+
+
+    
+
+					
+						
+
+						<div class="row  mt-5">
+						    <div class="col-4" >
+							</div>
+							<div class="col-2" >
+								<button class="btn btn-primary mb-2" style="width: 100%; text-align: center;">{% trans 'Save' %}</button>
+							</div>
+							<div  class="col-2" >
+								<button class="btn btn-warning mb-2" style="width: 100%; text-align: center;" onclick="location.href='/{{LANGUAGE_CODE}}/customgrouppermissions/list';">
+								{% trans "Cancel" %}
+								</button>
+							</div>
+						</div>
+					</form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- END CONTENT AREA   -->
+<script>
+    function selectAllCheckboxes(isChecked) {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = isChecked;
+        });
+    }
+	
+	function toggleAllCheckboxes(selectAllCheckbox, className) {
+        const checkboxes = document.querySelectorAll(className);
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    }
+	
+	
+	function toggleRowCheckboxes(rowCheckbox) {
+        const row = rowCheckbox.closest('tr');
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]:not(.row-checkbox)');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = rowCheckbox.checked; // تعيين حالة checkbox
+        });
+    }
+</script>
+{% endblock %}

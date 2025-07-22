@@ -1,0 +1,141 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+{% block title %} {% trans "Delete User" %} {% endblock %}
+
+{% block content_area %}
+    <!-- BEGIN CONTENT AREA -->
+    <div id="content" class="main-content">
+        <div class="layout-px-spacing">
+            <div class="contact-us layout-top-spacing">
+                <div class="cu-contact-section" style="display: block;">
+				<form method="post" action="{% url 'customusers:delete' object.pk %}">
+                    <div class="contact-form">
+                        {% csrf_token %}
+                        <div class="cu-section-header mb-4">
+                            <h3 style="color:#e7515a;font-weight: bold;">{% trans "Delete User" %}</h3>
+                            <h6 style="color:#e7515a;">{% trans "Are you sure you want to delete the following User ?" %}</h6>
+			    		</div>
+             
+
+
+					<!-- User Information -->
+					<div class="row mb-4">
+						<div class="col-4">
+							<label class="input-group-label">{% trans 'User Name' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg"  xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+											<path d="M16 11l2 2 4-4"></path>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.username }}"  disabled>
+							</div>
+						</div>
+						<div class="col-4">
+							<label class="input-group-label">{% trans 'User GroupType' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg  class="input-group-svg"  xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+											<path d="M9 11l3 3L22 4"></path><circle cx="12" cy="12" r="10"></circle>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.user_type }}"  disabled>
+							</div>
+						</div>
+						<div class="col-4">
+							<label class="input-group-label">{% trans 'User Group' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg  class="input-group-svg"  xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+											<path d="M9 11l3 3L22 4"></path><circle cx="12" cy="12" r="10"></circle>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.user_group_message }}"  disabled>
+							</div>
+						</div>
+					</div>
+					
+					<!-- User Information -->
+					<div class="row mb-4">
+						<div class="col-4">
+							<label class="input-group-label">{% trans 'First Name' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.first_name }}"  disabled>
+							</div>
+						</div>
+						<div class="col-4">
+							<label class="input-group-label">{% trans 'Last Name' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.last_name }}"  disabled>
+							</div>
+						</div>
+						<div class="col-4">
+							<label class="input-group-label">{% trans 'Email' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign">
+											<circle cx="12" cy="12" r="4"></circle>
+											<path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.email }}"  disabled>
+							</div>
+						</div>
+					</div>
+										
+					
+					<!-- Form Buttons -->
+					<div class="row mt-5">
+						<div class="col-3"></div>
+					    <div class="col-2">
+							<button type="submit" name="delete_type" value="deactive" class="btn btn-danger mb-2" style="width: 100%; text-align: center;">
+								{% trans 'De-Active' %}
+							</button>
+						</div>
+						<div class="col-2">
+							<button type="button" class="btn btn-primary mb-2" style="width: 100%; text-align: center;" onclick="location.href='/{{LANGUAGE_CODE}}/customusers/list'">
+								{% trans 'Cancel' %}
+							</button>
+						</div>
+						<div class="col-2">
+							<button type="submit" name="delete_type" value="delete" class="btn btn-danger mb-2" style="width: 100%; text-align: center;">
+								{% trans 'Delete' %}
+							</button>	
+						</div>
+					
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+    </div>
+</div>
+<!-- END CONTENT AREA -->
+{% endblock %}

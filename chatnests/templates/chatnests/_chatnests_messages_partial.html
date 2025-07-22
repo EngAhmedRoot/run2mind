@@ -1,0 +1,159 @@
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<input type="hidden" id="currentuser_id" value="{{ request.user.id }}" />
+<input type="hidden" id="otherparty_id" value="{{ otherparty_user.id }}" />
+<input type="hidden" id="room_id" value="{{ room_id }}" />
+
+ 		
+
+<ul id="chat-box" class="list-unstyled" style="max-height: 380px; overflow-y: auto; overflow-x: hidden; border: 2px solid #ccc; border-radius: 10px;">
+	{% for message in messages_private_room %}	
+		{% if message.otherparty_id != message.currentuser_id %}
+		
+		<li class="d-flex justify-content-start mb-3" >
+			<div class="d-flex w-100 justify-content-start"> 
+				
+				<img src="{{ message.otherparty_avatar|default:'/static/run2mind/images/profile_image.jpg' }}" alt="avatar" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" width="60">
+		
+                <div class="card w-100" style="width:60% !important" >
+                    <div class="card-header d-flex justify-content-between p-2 success">
+						<p style="color: white;" class="fw-bold mb-0">{{ message.sender_name }} </p>
+						<p style="color: white;" class=" small mb-0"><i class="far fa-clock"></i>{{ message.timestamp|date:"Y-m-d H:i:s" }}</p>
+                    </div>
+                    <div class="card-body text-start">
+						<p class="mb-0">
+							{{ message.message_content }}
+						</p>
+					</div>			
+                </div>
+			</div>
+        </li> 
+		{% else %}
+		<li class="d-flex justify-content-end mb-4">
+		    <div class="d-flex w-100 justify-content-end"> 
+				<div class="card w-100" style="width:60% !important">
+					<div class="card-header d-flex justify-content-between p-2" style="background-color:#8157a2;">
+				
+						<p style="color: white;" class="small mb-0"><i class="far fa-clock"></i>{{ message.timestamp }}</p>
+						<p style="color: white;" class="fw-bold mb-0 text-start">{{ message.sender_name }} </p>
+					</div>
+					<div class="card-body text-end">
+						<p class="mb-0">
+							{{ message.message_content }}
+						</p>
+					</div>
+				</div>
+				
+				<img src="{{ message.otherparty_avatar|default:'/static/run2mind/images/profile_image.jpg' }}" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">
+
+				
+			</div>
+		</li>		   
+		{% endif %}								
+    {% endfor %} 
+</ul>
+{% if messages_private_room %}
+
+<div  >
+	<input type="hidden" id="receiverId" value="{{ request.user.id }}" />
+	<div class="bg-white ">
+      <div data-mdb-input-init class="form-outline">
+        <textarea class="form-control bg-body-tertiary" id="messageBox" rows="2"></textarea>        
+      </div>
+    </div>
+    
+	<button id="send-message-btn" type="button" class="mb-3 mt-2 btn success btn-rounded" style="color:white; width:150px; display: block; margin: 0 auto;">Send</button>
+</div>
+{% endif %}
+	
+                           
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+	
+$(document).ready(function() {
+    console.log($('input[name="csrfmiddlewaretoken"]').val());
+	
+
+	
+    var chatBox = $('#chat-box');
+	
+    chatBox.scrollTop(chatBox[0].scrollHeight);
+
+    function scrollToBottom() {
+        chatBox.scrollTop(chatBox[0].scrollHeight);
+    }
+	
+
+
+
+    var currentuser_id = $("#currentuser_id").val();  
+    var otherparty_id = $("#otherparty_id").val(); 
+	var room_id = $("#room_id").val(); 
+	
+    // تحقق من أن senderId و receiverId موجودين قبل إنشاء roomName
+    if (currentuser_id && otherparty_id) {
+        var roomName = `${Math.min(currentuser_id, otherparty_id)}_${Math.max(currentuser_id, otherparty_id)}`;
+		room_name_reload=roomName;
+	} else {
+        console.error("Error: currentuser_id or otherparty_id is undefined");
+        return;  // أوقف التنفيذ إذا كانت القيم غير موجودة
+    }
+
+	
+    // الاتصال بـ WebSocket مع roomName الصحيح
+    //var socket = new WebSocket(`ws://127.0.0.1:8000/ws/chat/${roomName}/`);
+
+    // عند الاتصال بالخادم عبر WebSocket
+    //socket.onopen = function(event) {
+        //console.log("Connected to WebSocket!");
+    //};
+	$('#messageBox').on('keydown', function(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();  // تمنع السطر الجديد
+        $('#send-message-btn').click();
+    }
+});
+	
+	$('#send-message-btn').click(function(event) {
+		event.preventDefault(); // احرص على منع السلوك الافتراضي هنا
+		var messageContent = $('#messageBox').val().trim();
+	
+		var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+	
+		if (messageContent !== "") {
+			var formData = new FormData();
+			formData.append('content', messageContent); 
+			formData.append('receiver_id', otherparty_id);  
+			formData.append('csrfmiddlewaretoken', csrfToken);
+	
+			var url = "/" + window.location.pathname.split('/')[1] + "/chatnests/send_message/" + otherparty_id + "/";
+	
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: formData,
+				processData: false,
+				contentType: false,
+	
+				success: function (response) {
+					$('#messageBox').val('');
+					$('#clickbtn').click();
+					// مفيش داعي لـ event.preventDefault() هنا لأنه مش مرتبط بـ keydown
+				},
+				error: function (xhr) {
+					console.error("Error: " + xhr.responseText);
+				}
+			});
+		}
+	});
+
+	
+
+
+});
+</script>
+

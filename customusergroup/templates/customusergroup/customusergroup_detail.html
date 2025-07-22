@@ -1,0 +1,116 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+
+
+{% block title %} {% trans "User Group Details" %} {% endblock %}
+
+{% block content_area %}
+ 
+
+        <!--  BEGIN CONTENT AREA  -->
+        <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+
+                <div class="contact-us layout-top-spacing">
+
+                   <div class="cu-contact-section" style="display: block;">
+
+                        <div class="contact-form">
+                           
+
+                                <div class="cu-section-header  mb-5">
+                                    <h3 style="color:#1f9f70;font-weight: bold;">User Group Details</h3>
+
+                                </div>
+
+
+                                <div class="row mb-4"> 
+							<div class="col-3 input-fields">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1f9f70" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+												<circle cx="12" cy="7" r="4"></circle>
+											</svg>
+										</span>
+									</div>
+									<input type="text" style="color:#1f9f70;" class="form-control" placeholder="User Name" value="{{ object.username }}" aria-describedby="nameIcon" disabled>
+          
+									
+								</div>
+							</div>
+							<div class="col-3 input-fields">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign">
+												<circle cx="12" cy="12" r="4"></circle>
+												<path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+											</svg>
+										</span>
+									</div>
+									<input type="text" style="color:#1f9f70;" class="form-control" placeholder="Email" value="{{ object.email }}" aria-describedby="nameIcon" disabled>
+          
+										
+								</div>
+							</div>
+							<div class="col-4 input-fields">
+								<div class="input-group" style="height:45px; width:100%">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="nameIcon">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1f9f70" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+												<circle cx="12" cy="7" r="4"></circle>
+											</svg>
+										</span>
+									</div>
+										<input type="text" style="color:#1f9f70;" class="form-control" placeholder="Group"  value="{% if object.groups.exists %}{% for group in object.groups.all %}{{ group.name }}{% if not forloop.last %}, {% endif %}{% endfor %}{% else %}No-Group{% endif %}"  aria-describedby="nameIcon" disabled>
+          
+								</div>
+							</div>
+ 
+							
+						</div>
+
+
+                                <div class="row  mt-5">
+                            <div class="col-sm-2 col-2 input-fields" >
+                                <button style="width: 100%; text-align: center;" class="btn btn-primary mb-2" onclick="location.href='/{{LANGUAGE_CODE}}/customusergroup/update/{{object.id}}'">
+                                    {% trans 'Edit' %}
+                                </button>
+                            </div>
+                            <div class="col-sm-2 col-2 input-fields" >
+                                <button style="width: 100%; text-align: center;" class="btn btn-warning mb-2" onclick="location.href='/{{LANGUAGE_CODE}}/customusergroup/list'">
+                                    {% trans 'Back to List' %}
+                                </button>
+                            </div>
+                        </div>
+
+                       </div>
+
+
+                     </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <!--  END CONTENT AREA  -->
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
+
+
+{% endblock %}

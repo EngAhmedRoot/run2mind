@@ -1,0 +1,848 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-22 18:17+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\chatbot\templates\chatbot\chatbot.html:6
+#: .\chatnests\templates\chatnests\send_message.html:6
+#: .\chatnests\templates\chatnests\send_message.html:19
+#: .\chatnests\templates\chatnests\send_message.html:57
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+#: .\chatbot\templates\chatbot\chatbot.html:64
+msgid "Chat bot"
+msgstr "الدردشة الآلية"
+
+#: .\chatbot\templates\chatbot\chatbot.html:78
+msgid "الدردشة مع الـ Chatbot"
+msgstr "الدردشة مع الروبوت"
+
+#: .\chatbot\templates\chatbot\chatbot.html:80
+msgid "اكتب هنا ..."
+msgstr "اكتب هنا ..."
+
+#: .\chatnests\forms.py:27
+msgid "Select participants"
+msgstr "اختر المشاركين"
+
+#: .\chatnests\models.py:18 .\chatnests\models.py:78 .\chatnests\models.py:105
+#: .\customusers\forms.py:10
+#: .\customusers\templates\customusers\customusers_list.html:40
+#: .\customusers\templates\customusers\customusers_list.html:53
+msgid "Active"
+msgstr "نشط"
+
+#: .\chatnests\models.py:18 .\chatnests\models.py:78 .\chatnests\models.py:105
+#: .\customusers\forms.py:11
+msgid "Deactive"
+msgstr "غير نشط"
+
+#: .\chatnests\templates\chatnests\chatnests_add.html:6
+msgid "Add Clinic Chat"
+msgstr "إضافة دردشة للعيادة"
+
+#: .\chatnests\templates\chatnests\chatnests_add.html:8
+#: .\chatnests\templates\chatnests\chatnests_add.html:23
+msgid "Update Clinic Chat"
+msgstr "تحديث دردشة العيادة"
+
+#: .\chatnests\templates\chatnests\chatnests_add.html:21
+msgid "New Clinic Chat"
+msgstr "دردشة عيادة جديدة"
+
+#: .\chatnests\templates\chatnests\chatnests_add.html:45
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:156
+#: .\customgroups\templates\customgroups\groups_create.html:58
+#: .\customusergroup\templates\customusergroup\customusergroup_update.html:85
+#: .\customusers\templates\customusers\change_password.html:125
+#: .\customusers\templates\customusers\customusers_add.html:137
+#: .\customusers\templates\customusers\customusers_add2.html:199
+#: .\customusers\templates\customusers\customusers_change.html:137
+msgid "Save"
+msgstr "حفظ"
+
+#: .\chatnests\templates\chatnests\chatnests_add.html:50
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:160
+#: .\customgroups\templates\customgroups\groups_create.html:62
+#: .\customusergroup\templates\customusergroup\customusergroup_update.html:89
+#: .\customusers\templates\customusers\change_password.html:120
+#: .\customusers\templates\customusers\customusers_add.html:132
+#: .\customusers\templates\customusers\customusers_add2.html:203
+#: .\customusers\templates\customusers\customusers_change.html:132
+#: .\customusers\templates\customusers\customusers_delete.html:124
+#: .\customusers\templates\customusers\customusers_detail.html:125
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: .\chatnests\templates\chatnests\chatnests_add.html:62
+msgid "Please select at least one participant."
+msgstr "يرجى اختيار مشارك واحد على الأقل."
+
+#: .\chatnests\templates\chatnests\chatnests_messages.html:6
+#: .\chatnests\templates\chatnests\chatnests_messages.html:24
+msgid "Chat Messages"
+msgstr "رسائل الدردشة"
+
+#: .\chatnests\templates\chatnests\chatnests_messages.html:18
+msgid "Members PROFILE"
+msgstr "ملف الأعضاء"
+
+#: .\chatnests\templates\chatnests\create_private_chatroom.html:6
+msgid "Private Chat"
+msgstr "دردشة خاصة"
+
+#: .\chatnests\templates\chatnests\send_message.html:35
+msgid "Send a Message to"
+msgstr "إرسال رسالة إلى"
+
+#: .\chatnests\views.py:334
+msgid "Group rooms can only include experts."
+msgstr "يمكن أن تحتوي غرف المجموعات على خبراء فقط."
+
+#: .\chatnests\views.py:353
+msgid "Group chatroom created successfully!"
+msgstr "تم إنشاء غرفة الدردشة الجماعية بنجاح!"
+
+#: .\customgrouppermissions\forms.py:10
+#: .\customgroups\templates\customgroups\groups_list.html:23
+#: .\customusers\admin.py:10
+msgid "Permissions"
+msgstr "الصلاحيات"
+
+#: .\customgrouppermissions\forms.py:18
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:34
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:18
+#: .\customgroups\forms.py:13
+#: .\customgroups\templates\customgroups\groups_list.html:22
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:19
+msgid "Group Name"
+msgstr "اسم المجموعة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:6
+msgid "Add Group Permissions"
+msgstr "إضافة صلاحيات مجموعة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:8
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:25
+msgid "Update Group Permissions"
+msgstr "تحديث صلاحيات المجموعة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:23
+msgid "New Group Permissions"
+msgstr "صلاحيات مجموعة جديدة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:52
+msgid "Select All"
+msgstr "تحديد الكل"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_create.html:55
+msgid "Unselect All"
+msgstr "إلغاء تحديد الكل"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_details.html:5
+msgid "Detail Group Permission"
+msgstr "تفاصيل صلاحيات المجموعة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_details.html:17
+msgid "Details Group Permission"
+msgstr "تفاصيل صلاحيات المجموعة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_details.html:98
+#: .\customgroups\templates\customgroups\groups_detail.html:46
+#: .\customgroups\templates\customgroups\groups_list.html:51
+#: .\customusergroup\templates\customusergroup\customusergroup_detail.html:81
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:43
+#: .\customusers\templates\customusers\customusers_list.html:67
+#: .\experts\templates\experts\experts_detail.html:248
+#: .\experts\templates\experts\experts_list.html:49
+msgid "Edit"
+msgstr "تعديل"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_details.html:103
+#: .\customgroups\templates\customgroups\groups_delete.html:41
+#: .\customgroups\templates\customgroups\groups_detail.html:51
+#: .\customusergroup\templates\customusergroup\customusergroup_detail.html:86
+#: .\experts\templates\experts\experts_detail.html:253
+msgid "Back to List"
+msgstr "العودة إلى القائمة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:4
+msgid "Grouppermissions"
+msgstr "صلاحيات المجموعات"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:17
+#: .\customgroups\templates\customgroups\groups_list.html:21
+msgid "Group Id"
+msgstr "معرّف المجموعة"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:19
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:28
+msgid "Edit Permissions"
+msgstr "تعديل الصلاحيات"
+
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:20
+#: .\customgrouppermissions\templates\customgrouppermissions\grouppermissions_list.html:29
+msgid "View Permissions"
+msgstr "عرض الصلاحيات"
+
+#: .\customgroups\forms.py:24
+msgid "A group with this name already exists."
+msgstr "توجد مجموعة بهذا الاسم بالفعل."
+
+#: .\customgroups\templates\customgroups\groups_create.html:6
+#: .\customgroups\templates\customgroups\groups_list.html:13
+msgid "Add Group"
+msgstr "إضافة مجموعة"
+
+#: .\customgroups\templates\customgroups\groups_create.html:8
+#: .\customgroups\templates\customgroups\groups_create.html:25
+msgid "Update"
+msgstr "تحديث"
+
+#: .\customgroups\templates\customgroups\groups_create.html:23
+msgid "New Group"
+msgstr "مجموعة جديدة"
+
+#: .\customgroups\templates\customgroups\groups_delete.html:4
+#: .\customgroups\templates\customgroups\groups_delete.html:14
+msgid "Delete Group"
+msgstr "حذف المجموعة"
+
+#: .\customgroups\templates\customgroups\groups_delete.html:15
+msgid "Are you sure you want to delete the following group?"
+msgstr "هل أنت متأكد أنك تريد حذف المجموعة التالية؟"
+
+#: .\customgroups\templates\customgroups\groups_delete.html:35
+#: .\customgroups\templates\customgroups\groups_list.html:52
+#: .\customusers\templates\customusers\customusers_delete.html:129
+#: .\customusers\templates\customusers\customusers_list.html:68
+#: .\experts\templates\experts\experts_list.html:50
+msgid "Delete"
+msgstr "حذف"
+
+#: .\customgroups\templates\customgroups\groups_detail.html:6
+msgid "Group Details"
+msgstr "تفاصيل المجموعة"
+
+#: .\customgroups\templates\customgroups\groups_list.html:4
+msgid "Groups"
+msgstr "المجموعات"
+
+#: .\customgroups\templates\customgroups\groups_list.html:24
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:20
+#: .\customusers\templates\customusers\customusers_list.html:41
+#: .\experts\templates\experts\experts_list.html:24
+msgid "Action"
+msgstr "الإجراء"
+
+#: .\customgroups\templates\customgroups\groups_list.html:34
+msgid "Has Permissions"
+msgstr "يمتلك صلاحيات"
+
+#: .\customgroups\templates\customgroups\groups_list.html:36
+msgid "No Permissions"
+msgstr "لا يمتلك صلاحيات"
+
+#: .\customgroups\templates\customgroups\groups_list.html:50
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:42
+#: .\customusers\templates\customusers\customusers_list.html:66
+#: .\experts\templates\experts\experts_list.html:48
+msgid "View"
+msgstr "عرض"
+
+#: .\customusergroup\forms.py:13 .\customusers\forms.py:30
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: .\customusergroup\forms.py:14
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:18
+#: .\customusers\forms.py:34
+#: .\customusers\templates\customusers\customusers_add.html:94
+#: .\customusers\templates\customusers\customusers_add2.html:114
+#: .\customusers\templates\customusers\customusers_change.html:94
+#: .\customusers\templates\customusers\customusers_delete.html:98
+#: .\customusers\templates\customusers\customusers_detail.html:92
+#: .\experts\forms.py:34 .\experts\templates\experts\experts_detail.html:113
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\customusergroup\forms.py:20
+msgid "---- Choose A Group ----"
+msgstr "---- اختر مجموعة ----"
+
+#: .\customusergroup\templates\customusergroup\customusergroup_detail.html:6
+msgid "User Group Details"
+msgstr "تفاصيل مجموعة المستخدم"
+
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:4
+msgid "Customusergroup"
+msgstr "مجموعة المستخدم المخصصة"
+
+#: .\customusergroup\templates\customusergroup\customusergroup_list.html:17
+#: .\customusers\templates\customusers\customusers_add2.html:34
+#: .\customusers\templates\customusers\customusers_delete.html:25
+#: .\customusers\templates\customusers\customusers_list.html:36
+#: .\experts\templates\experts\experts_detail.html:38
+#: .\experts\templates\experts\experts_list.html:20
+msgid "User Name"
+msgstr "اسم المستخدم"
+
+#: .\customusergroup\templates\customusergroup\customusergroup_update.html:6
+#: .\customusergroup\templates\customusergroup\customusergroup_update.html:21
+msgid "Update User Group"
+msgstr "تحديث مجموعة المستخدم"
+
+#: .\customusers\admin.py:9
+msgid "Personal info"
+msgstr "المعلومات الشخصية"
+
+#: .\customusers\admin.py:11
+msgid "Important dates"
+msgstr "تواريخ هامة"
+
+#: .\customusers\admin.py:12
+#: .\customusers\templates\customusers\customusers_add.html:104
+#: .\customusers\templates\customusers\customusers_change.html:104
+#: .\customusers\templates\customusers\customusers_detail.html:103
+msgid "User Type"
+msgstr "نوع المستخدم"
+
+#: .\customusers\admin.py:13
+msgid "Profile Image"
+msgstr "صورة الملف الشخصي"
+
+#: .\customusers\admin.py:38
+msgid "Site administration"
+msgstr "إدارة الموقع"
+
+#: .\customusers\admin.py:39
+msgid "Custom Users Administration"
+msgstr "إدارة المستخدمين المخصصين"
+
+#: .\customusers\admin.py:40
+msgid "Welcome to the Custom Users Admin"
+msgstr "مرحبًا بك في لوحة تحكم المستخدمين المخصصين"
+
+#: .\customusers\forms.py:17
+msgid "Is Active"
+msgstr "نشط"
+
+#: .\customusers\forms.py:23
+msgid "User Group Message"
+msgstr "رسالة مجموعة المستخدم"
+
+#: .\customusers\forms.py:32
+#: .\customusers\templates\customusers\customusers_add.html:69
+#: .\customusers\templates\customusers\customusers_add2.html:84
+#: .\customusers\templates\customusers\customusers_change.html:69
+#: .\customusers\templates\customusers\customusers_delete.html:70
+#: .\customusers\templates\customusers\customusers_detail.html:67
+msgid "First Name"
+msgstr "الاسم الأول"
+
+#: .\customusers\forms.py:33
+#: .\customusers\templates\customusers\customusers_add.html:77
+#: .\customusers\templates\customusers\customusers_add2.html:98
+#: .\customusers\templates\customusers\customusers_change.html:77
+#: .\customusers\templates\customusers\customusers_delete.html:84
+#: .\customusers\templates\customusers\customusers_detail.html:75
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+#: .\customusers\forms.py:35
+msgid "File"
+msgstr "ملف"
+
+#: .\customusers\forms.py:47
+msgid "---- Choose UserType ----"
+msgstr "---- اختر نوع المستخدم ----"
+
+#: .\customusers\forms.py:79
+msgid "A user with that username already exists."
+msgstr "يوجد مستخدم بهذا الاسم بالفعل."
+
+#: .\customusers\forms.py:88 .\customusers\forms.py:89
+#: .\customusers\forms.py:104
+#: .\customusers\templates\customusers\change_password.html:59
+msgid "Old Password"
+msgstr "كلمة المرور القديمة"
+
+#: .\customusers\forms.py:92 .\customusers\forms.py:93
+#: .\customusers\forms.py:105
+#: .\customusers\templates\customusers\change_password.html:76
+msgid "New Password"
+msgstr "كلمة المرور الجديدة"
+
+#: .\customusers\forms.py:96 .\customusers\forms.py:97
+msgid "Confirm New Password"
+msgstr "تأكيد كلمة المرور الجديدة"
+
+#: .\customusers\forms.py:106
+#: .\customusers\templates\customusers\change_password.html:92
+#: .\customusers\templates\customusers\customusers_add2.html:149
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+#: .\customusers\forms.py:133
+msgid "The old password is incorrect."
+msgstr "كلمة المرور القديمة غير صحيحة."
+
+#: .\customusers\forms.py:143
+msgid "The two new passwords do not match."
+msgstr "كلمتا المرور الجديدتان غير متطابقتين."
+
+#: .\customusers\templates\customusers\change_password.html:6
+#: .\customusers\templates\customusers\customusers_add.html:6
+#: .\customusers\templates\customusers\customusers_change.html:6
+msgid "User Edit"
+msgstr "تعديل المستخدم"
+
+#: .\customusers\templates\customusers\change_password.html:19
+#: .\customusers\templates\customusers\customusers_add.html:19
+#: .\customusers\templates\customusers\customusers_change.html:19
+#: .\customusers\templates\customusers\customusers_detail.html:19
+#: .\customusers\templates\customusers\userprofile_detail.html:19
+msgid "MY PROFILE"
+msgstr "ملفي الشخصي"
+
+#: .\customusers\templates\customusers\change_password.html:26
+#: .\customusers\templates\customusers\customusers_add.html:143
+#: .\customusers\templates\customusers\customusers_change.html:143
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+#: .\customusers\templates\customusers\customusers_add.html:26
+#: .\customusers\templates\customusers\customusers_change.html:26
+#: .\customusers\templates\customusers\userprofile_detail.html:99
+#: .\customusers\templates\customusers\userprofile_detail.html:179
+msgid "Edit Profile"
+msgstr "تعديل المستخدم  "
+
+#: .\customusers\templates\customusers\customusers_add.html:59
+#: .\customusers\templates\customusers\customusers_change.html:59
+#: .\customusers\templates\customusers\customusers_detail.html:57
+msgid "UserName"
+msgstr "اسم المستخدم"
+
+#: .\customusers\templates\customusers\customusers_add.html:86
+#: .\customusers\templates\customusers\customusers_change.html:86
+msgid "Upload New Image"
+msgstr "رفع صورة جديدة"
+
+#: .\customusers\templates\customusers\customusers_add.html:112
+#: .\customusers\templates\customusers\customusers_change.html:112
+#: .\experts\templates\experts\experts_list.html:23
+msgid "Status"
+msgstr "الحالة"
+
+#: .\customusers\templates\customusers\customusers_add2.html:6
+#: .\customusers\templates\customusers\customusers_list.html:30
+msgid "Add User_Group"
+msgstr "إضافة مجموعة مستخدم"
+
+#: .\customusers\templates\customusers\customusers_add2.html:8
+#: .\customusers\templates\customusers\customusers_add2.html:24
+msgid "Update User_Group"
+msgstr "تحديث مجموعة مستخدم"
+
+#: .\customusers\templates\customusers\customusers_add2.html:22
+msgid "New User_Group"
+msgstr "مجموعة مستخدم جديدة"
+
+#: .\customusers\templates\customusers\customusers_add2.html:51
+#: .\customusers\templates\customusers\customusers_delete.html:40
+msgid "User GroupType"
+msgstr "نوع مجموعة المستخدم"
+
+#: .\customusers\templates\customusers\customusers_add2.html:65
+#: .\customusers\templates\customusers\customusers_delete.html:53
+msgid "User Group"
+msgstr "مجموعة المستخدم"
+
+#: .\customusers\templates\customusers\customusers_add2.html:134
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\customusers\templates\customusers\customusers_add2.html:165
+msgid "User Status"
+msgstr "حالة المستخدم"
+
+#: .\customusers\templates\customusers\customusers_delete.html:4
+#: .\customusers\templates\customusers\customusers_delete.html:16
+msgid "Delete User"
+msgstr "حذف المستخدم"
+
+#: .\customusers\templates\customusers\customusers_delete.html:17
+msgid "Are you sure you want to delete the following User ?"
+msgstr "هل أنت متأكد أنك تريد حذف المستخدم التالي؟"
+
+#: .\customusers\templates\customusers\customusers_delete.html:119
+msgid "De-Active"
+msgstr "غير نشط"
+
+#: .\customusers\templates\customusers\customusers_detail.html:6
+msgid "User Detail"
+msgstr "تفاصيل المستخدم"
+
+#: .\customusers\templates\customusers\customusers_detail.html:26
+#: .\customusers\templates\customusers\userprofile_detail.html:96
+#: .\customusers\templates\customusers\userprofile_detail.html:176
+msgid "Detail Profile"
+msgstr "تفاصيل الملف الشخصي"
+
+#: .\customusers\templates\customusers\customusers_detail.html:131
+msgid "Edit "
+msgstr "تعديل"
+
+#: .\customusers\templates\customusers\customusers_list.html:4
+msgid "Users & Groups"
+msgstr "المستخدمون والمجموعات"
+
+#: .\customusers\templates\customusers\customusers_list.html:37
+msgid "Group Type"
+msgstr "نوع المجموعة"
+
+#: .\customusers\templates\customusers\customusers_list.html:38
+msgid "Date Joined"
+msgstr "تاريخ الانضمام"
+
+#: .\customusers\templates\customusers\customusers_list.html:39
+msgid "Last Login"
+msgstr "آخر تسجيل دخول"
+
+#: .\customusers\templates\customusers\customusers_list.html:55
+msgid "InActive"
+msgstr "غير نشط"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:6
+msgid "Expert Detail"
+msgstr "تفاصيل الخبير"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:26
+msgid "Profile Details"
+msgstr "تفاصيل الملف الشخصي"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:59
+#: .\customusers\templates\customusers\userprofile_detail.html:135
+msgid "UserName:"
+msgstr "اسم المستخدم:"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:64
+#: .\customusers\templates\customusers\userprofile_detail.html:140
+msgid "User Type:"
+msgstr "نوع المستخدم:"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:69
+msgid "THERAPIST:"
+msgstr "المعالج:"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:85
+msgid "Years Of Experience"
+msgstr "سنوات الخبرة"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:106
+msgid "Detail Expert"
+msgstr "تفاصيل الخبير"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:109
+msgid "Edit Expert"
+msgstr "تعديل الخبير"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:186
+msgid "Detail Patient"
+msgstr "تفاصيل المريض"
+
+#: .\customusers\templates\customusers\userprofile_detail.html:189
+msgid "Edit Patient"
+msgstr "تعديل المريض"
+
+#: .\customusers\views.py:177
+msgid "The specified group does not exist."
+msgstr "المجموعة المحددة غير موجودة."
+
+#: .\experts\forms.py:13
+msgid "Select Expert User"
+msgstr "اختر المستخدم الخبير"
+
+#: .\experts\forms.py:14
+msgid "--- Choose User ---"
+msgstr "--- اختر مستخدم ---"
+
+#: .\experts\forms.py:23
+msgid "Expert NameAR"
+msgstr "اسم الخبير (بالعربية)"
+
+#: .\experts\forms.py:24
+msgid "Expert NameEN"
+msgstr "اسم الخبير (بالإنجليزية)"
+
+#: .\experts\forms.py:26
+msgid "SpecializationAR"
+msgstr "التخصص (بالعربية)"
+
+#: .\experts\forms.py:27
+msgid "SpecializationEN"
+msgstr "التخصص (بالإنجليزية)"
+
+#: .\experts\forms.py:30 .\experts\templates\experts\experts_detail.html:71
+msgid "Birthdate"
+msgstr "تاريخ الميلاد"
+
+#: .\experts\forms.py:32 .\experts\templates\experts\experts_detail.html:87
+#: .\experts\templates\experts\experts_list.html:22
+msgid "Phone"
+msgstr "الهاتف"
+
+#: .\experts\forms.py:33 .\experts\templates\experts\experts_detail.html:100
+msgid "Mobile"
+msgstr "الجوال"
+
+#: .\experts\forms.py:37
+msgid "DetailsAR"
+msgstr "التفاصيل (بالعربية)"
+
+#: .\experts\forms.py:38
+msgid "DetailsEN"
+msgstr "التفاصيل (بالإنجليزية)"
+
+#: .\experts\models.py:12
+msgid "Male"
+msgstr "ذكر"
+
+#: .\experts\models.py:13
+msgid "Female"
+msgstr "أنثى"
+
+#: .\experts\models.py:17
+msgid "Name (Arabic)"
+msgstr "الاسم (بالعربية)"
+
+#: .\experts\models.py:18
+msgid "Name (English)"
+msgstr "الاسم (بالإنجليزية)"
+
+#: .\experts\models.py:23 .\experts\templates\experts\experts_detail.html:167
+msgid "Gender"
+msgstr "الجنس"
+
+#: .\experts\models.py:24
+msgid "Years of Experience"
+msgstr "سنوات الخبرة"
+
+#: .\experts\models.py:27
+msgid "Specialization (Arabic)"
+msgstr "التخصص (بالعربية)"
+
+#: .\experts\models.py:28
+msgid "Specialization (English)"
+msgstr "التخصص (بالإنجليزية)"
+
+#: .\experts\models.py:29
+msgid "Certificates (Arabic)"
+msgstr "الشهادات (بالعربية)"
+
+#: .\experts\models.py:30
+msgid "Certificates (English)"
+msgstr "الشهادات (بالإنجليزية)"
+
+#: .\experts\models.py:31
+msgid "Details (Arabic)"
+msgstr "التفاصيل (بالعربية)"
+
+#: .\experts\models.py:32
+msgid "Details (English)"
+msgstr "التفاصيل (بالإنجليزية)"
+
+#: .\experts\templates\experts\experts_detail.html:6
+#: .\experts\templates\experts\experts_detail.html:17
+msgid "Detail Doctor"
+msgstr "تفاصيل الطبيب"
+
+#: .\experts\templates\experts\experts_detail.html:23
+#: .\experts\templates\experts\experts_list.html:19
+msgid "Doctor Name"
+msgstr "اسم الطبيب"
+
+#: .\experts\templates\experts\experts_detail.html:52
+#: .\experts\templates\experts\experts_list.html:21
+msgid "Specialization"
+msgstr "التخصص"
+
+#: .\experts\templates\experts\experts_detail.html:135
+msgid "City"
+msgstr "المدينة"
+
+#: .\experts\templates\experts\experts_detail.html:149
+msgid "District"
+msgstr "الحي"
+
+#: .\experts\templates\experts\experts_detail.html:195
+msgid "Doctor Status"
+msgstr "حالة الطبيب"
+
+#: .\experts\templates\experts\experts_detail.html:226
+msgid "Details"
+msgstr "التفاصيل"
+
+#: .\experts\templates\experts\experts_list.html:4
+msgid "Doctors"
+msgstr "الأطباء"
+
+#: .\experts\templates\experts\experts_list.html:13
+msgid "Add Doctor"
+msgstr "إضافة طبيب"
+
+#: .\run2mind\settings.py:176
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\run2mind\settings.py:177
+msgid "English"
+msgstr "الإنجليزية"
+
+#: .\templates\run2mind\base.html:40
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\run2mind\base.html:41
+msgid "Experts"
+msgstr "الخبراء"
+
+#: .\templates\run2mind\base.html:42
+msgid "Patients"
+msgstr "المرضى"
+
+#: .\templates\run2mind\base.html:43 .\templates\run2mind\base.html:151
+msgid "Chat"
+msgstr "الدردشة"
+
+#: .\templates\run2mind\base.html:44
+msgid "Session"
+msgstr "الجلسة"
+
+#: .\templates\run2mind\base.html:47 .\templates\run2mind\base.html:154
+msgid "Plans"
+msgstr "الخطط"
+
+#: .\templates\run2mind\base.html:56
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: .\templates\run2mind\base.html:61
+msgid "My Profile"
+msgstr "ملفي الشخصي"
+
+#: .\templates\run2mind\base.html:65
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\templates\run2mind\base.html:67 .\templates\run2mind\base.html:158
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\templates\run2mind\base.html:146
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+#: .\templates\run2mind\base.html:148
+msgid "Doctors & Therapists"
+msgstr "الأطباء والمعالجون"
+
+#: .\templates\run2mind\base.html:161
+msgid "Sign Up"
+msgstr "إنشاء حساب"
+
+#: .\templates\run2mind\base.html:166 .\templates\run2mind\base.html:216
+msgid "Follow us"
+msgstr "تابعنا"
+
+#: .\templates\run2mind\base.html:192 .\templates\run2mind\base.html:242
+msgid "soon"
+msgstr "قريباً"
+
+#: .\templates\run2mind\base.html:203
+msgid "Tech Support"
+msgstr "الدعم الفني"
+
+#: .\templates\run2mind\base.html:205
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\run2mind\base.html:208
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
+
+#: .\templates\run2mind\base.html:211
+msgid "Refund Policy"
+msgstr "سياسة الاسترجاع"
+
+#: .\templates\run2mind\base.html:253
+msgid ""
+"Copyright © 2024 All rights reserved to run2mind Design & develop by "
+"Polymotech Co."
+msgstr ""
+"حقوق النشر © 2024 جميع الحقوق محفوظة لـ run2mind التصميم والتطوير بواسطة "
+"شركة Polymotech."
+
+#: .\templates\run2mind\base.html:270
+msgid "write your massage"
+msgstr "اكتب رسالتك"
+
+#: .\templates\run2mind\base.html:271
+msgid "Send"
+msgstr "إرسال"
+
+#, fuzzy
+#~| msgid "Detail Group Permission"
+#~ msgid "Detail Sessions"
+#~ msgstr "تفاصيل صلاحيات المجموعة"
+
+#, fuzzy
+#~| msgid "Session"
+#~ msgid "Sessions"
+#~ msgstr "الجلسة"
+
+#, fuzzy
+#~| msgid "Chat bot"
+#~ msgid "Chat Now"
+#~ msgstr "الدردشة الآلية"
+
+#~ msgid "Dashboard"
+#~ msgstr "لوحة التحكم"
+
+#, fuzzy
+#~| msgid "Follow us"
+#~ msgid "Follow Up"
+#~ msgstr "تابعنا"
+
+#, fuzzy
+#~| msgid "Privacy Policy"
+#~ msgid "Privacy & Security"
+#~ msgstr "سياسة الخصوصية"
+
+#, fuzzy
+#~| msgid "Detail Expert"
+#~ msgid "Chose Expert"
+#~ msgstr "تفاصيل الخبير"
+
+#, fuzzy
+#~| msgid "Session"
+#~ msgid "Start Session"
+#~ msgstr "الجلسة"

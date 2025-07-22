@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-22 18:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: .\sessionappointments\templates\sessionappointments\sessionappointments_detail.html:6
+msgid "Detail Doctor"
+msgstr "تفاصيل الطبيب"
+
+msgid "Detail Sessions"
+msgstr "تفاصيل الجلسات"
+
+msgid "Coming Soon"
+msgstr "قريبًا"
+
+msgid "Sessions"
+msgstr "الجلسات"
+
+msgid "Comming Soon"
+msgstr "قريبًا"  # لاحظ أن الكلمة الأصلية بها خطأ إملائي، الصحيح: Coming Soon
+
+msgid "Your Session Will be"
+msgstr "جلستك ستكون"
+
+msgid "Available Soon"
+msgstr "متاحة قريبًا"
+
+msgid "It’s a complete happiness toolbox."
+msgstr "إنه صندوق أدوات متكامل للسعادة."
+
+msgid "Get matched with a qualified Therapist within a minute."
+msgstr "تواصل مع معالج مؤهل خلال دقيقة واحدة."
+
+msgid "Chat Now"
+msgstr "ابدأ المحادثة"
+
+msgid "Book Appointment"
+msgstr "احجز موعدًا"
+

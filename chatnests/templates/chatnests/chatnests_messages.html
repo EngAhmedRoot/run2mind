@@ -1,0 +1,185 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {% trans "Chat Messages" %} {% endblock %}
+
+{% block content_area %}
+ 
+<!--  BEGIN CONTENT AREA  -->
+<div class="experts-page">
+    <!-- start hero section -->
+    <div class="experts-hero">
+        <div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+						<h4 class="fs-4 fw-bold cl-main">
+							{% trans "Members PROFILE" %}
+							<span class="success fs-8 mx-2 mx-lg-3">RUN2MIND</span>
+						</h4>
+				</div>
+				<div class="col-lg-6">
+					<h1 class="hero-title fw-600 cl-main" style="">
+						{% trans "Chat Messages" %} 
+					</h1>
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- end hero section -->
+
+    <!-- Start Experts Main Sec -->
+	<div class="experts-main ">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-12">
+                <section>
+					<div class="row" id="memberMassagesContent">
+                        <div class="col-md-6 col-lg-5 col-xl-4 mt-4">
+                            <div class="card">
+                                <div class="card-body" style="max-height: 380px; overflow-y: auto; overflow-x: hidden; border: 2px solid #ccc; border-radius: 10px;">
+									<!-- هنا اخر رساله من كل شخص -->
+                                    {% if messages %}
+										<ul class="list-unstyled mb-0">
+											{% for message in messages %}
+												<li class="p-2 border-bottom bg-body-tertiary">
+													<a href="#!" class="d-flex justify-content-between message-item"  data-room-id="{{ message.room_id }}" value="{{ message.room_id }}">
+													<div class="d-flex flex-row">
+	   
+														{% if message.otherparty_avatar.url != null %}
+															<img src="{{ message.otherparty_avatar.url }}" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" style="height:80px;width:80px;" alt="avatar" >
+														{% else %}
+															<img src="{% static '/run2mind/images/profile_image.jpg' %}" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" style="height:80px;width:80px;" alt="avatar" >
+														{% endif %}
+		
+														<div class="pt-1">
+															<p class="fw-bold mb-0">{{ message.otherparty_name }}</p>
+															<p class="small text-muted">{{ message.content }}</p>
+															<small>Room: {{ message.room_name }}</small>
+															
+														</div>
+													</div>
+													<div class="pt-1">
+														<p class="small text-muted mb-0">{{ message.timestamp|date:"Y-m-d" }}</p>
+														<p class="small text-muted">{{ message.timestamp|date:"H:i:s" }}</p>
+														<span class="badge {% if message.is_read == 1 %}success{% else %}bg-danger{% endif %} float-end">
+															{% if message.is_read == 1 %}
+																Read
+															{% else %}
+																Unread
+															{% endif %}
+														</span>
+													</div>
+													</a>
+
+												</li>
+											{% endfor %}
+										</ul>
+									{% else %}
+										<p>No messages found.</p>
+									{% endif %}
+                                </div>
+                            </div>
+                      
+                        </div>
+							
+						{% csrf_token %}
+						<div class="mt-4  col-md-6 col-lg-7 col-xl-8" style="height: 500px;" id="results-container">
+							{% include 'chatnests/_chatnests_messages_partial.html' %}
+						</div>
+                        <input type="hidden" id="clickbtn" />
+               
+                    </div>
+                </section>  
+				</div>
+                      
+			</div>
+        </div>
+    </div>
+</div>
+
+<!--  END CONTENT AREA  -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	var room_global=0;
+    var new_message_count = 0; // عدد الرسائل الجديدة
+	var new_room=false;
+
+
+	
+    // عرض الرسائل عند الضغط على المستخدم
+    $('.message-item').on('click', function(event) {
+        event.preventDefault();
+        var room_id = $(this).data('room-id');
+		if (room_global == 0) {
+		    room_global = room_id;
+			new_room=false;
+        }
+		else {
+			room_global = room_id;
+			new_room=true;         
+        }
+		console.log(room_global);
+		get_room_massages(room_global,new_room);
+			
+    });
+	
+	$('#clickbtn').on('click', function(event) {
+        event.preventDefault();
+		console.log(room_global);
+		get_room_massages(room_global,new_room);			
+    });
+	
+    // Function to trigger a click on the message item with room_global
+    setInterval(function() {
+        if (room_global>0 && $('#messageBox').val()=="") {	
+			console.log(room_global);
+			get_room_massages(room_global,new_room);	
+			event.preventDefault();	
+        }
+    }, 5000);
+	
+	
+	function get_room_massages(room_Id,check_new_room){
+				
+        $.ajax({
+            url: '{% url "chatnests:chatnests_messages" %}',
+            type: 'POST',
+            data: {
+                'room_id': room_Id,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (new_message_count == 0 || check_new_room==true) {
+				    console.log("if");
+					new_room=false;
+					new_message_count= response.message_count;
+                    $('#results-container').html(response.html);
+					
+                }
+				else if (response.message_count > new_message_count) {
+					console.log("elseif");
+                    new_message_count = response.message_count;
+                    $('#results-container').html(response.html);
+					
+                }
+				else {
+					console.log("else");
+                    
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error: " + error);
+            }
+        });	
+	}
+
+});
+
+
+</script>
+
+
+{% endblock %}

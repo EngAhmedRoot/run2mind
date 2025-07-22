@@ -1,0 +1,366 @@
+{% load i18n %}
+
+{% load static %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}Document{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/run2mind/css/rSlider.min.css' %}">
+	<link rel="stylesheet" href="{% static '/run2mind/css/style.css' %}">
+
+</head>
+
+<body>
+    <nav class="underline">
+        <div class="rel">
+            <div class="container">
+                <div class="main-nav d-flex justify-content-between align-items-center d-lg-block">
+                    <div class="logo d-block d-lg-none">
+                        <a href="/">
+                            <img src="{% static '/run2mind/images/logo.png' %}" alt="logo">
+                        </a>
+                    </div>
+                    <div
+                        class="nav-container d-flex justify-content-lg-between justify-content-center align-items-center">
+                        <div class="logo d-none d-lg-block">
+                            <a href="/">
+                                <img src="{% static '/run2mind/images/logo.png' %}" alt="logo">
+                            </a>
+                        </div>
+                        <ul id="menu"
+                            class="d-flex justify-content-lg-between justify-content-center flex-column flex-lg-row  align-items-center">
+                            <div class="popup"></div>
+                            <li><a href="{% url 'dashboard:list' %}" class="active fw-700">{% trans "Home" %}</a></li>
+                            <li><a href="{% url 'expertsessions:list' %}" class="fw-700">{% trans "Experts" %}</a></li>
+							<li><a href="{% url 'patients:list' %}" class="fw-700">{% trans "Patients" %}</a></li>
+                            <li><a href="{% url 'chatnests:chatnests_messages' %}" class="fw-700">{% trans "Chat" %}</a></li>
+							<li><a href="{% url 'sessionappointments:list' %}" class="fw-700">{% trans "Session" %}</a></li>
+							 
+                            <li><a href="{% url 'sessionappointments:list' %}" class="fw-700" id="blog">
+                                    {% trans "Plans" %}
+                                    <!-- <span class="soon">soon</span> -->
+									
+                                </a></li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row end-nav">
+                            
+                           <div class=" px-3 py-2 dropdown">
+    <button class="btn-main light  dropdown-toggle" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {% trans "Settings" %}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+        <li>
+			<a class="dropdown-item" href="#" onclick="location.href='{% url 'customusers:userprofile' user.id %}'">
+				{% trans "My Profile" %}
+			</a>
+		</li>
+        {% if user.is_authenticated %}
+            <li><a class="dropdown-item" href="{% url 'login:logout' %}">{% trans "Logout" %}</a></li>
+        {% else %}
+            <li><a class="dropdown-item" href="{% url 'login:login' %}">{% trans "Login" %}</a></li>
+        {% endif %}
+    </ul>
+</div>
+						    <!-- Select Language -->
+                            <div class="select-language">
+							{% if LANGUAGE_CODE == 'en' %}
+								<div class="header d-flex align-items-center cursor-pointer px-3 py-2">
+                                    <span>
+                                        <img src="/assets/run2mind/images/en.png" width="27px" height="20px" loading="lazy" decoding="async"
+                                            alt="">
+                                    </span>
+                                    <span class="text px-1 px-lg-2 fs-7">English</span>
+                                   
+                                </div>
+                                <div  class="body d-flex align-items-center cursor-pointer"  >
+                                    <span>
+
+                                        <img src="/assets/run2mind/images/ar.png" width="27px" height="20px" loading="lazy" decoding="async"
+                                            alt="">
+                                    </span>
+                                    <span class="text px-1 px-lg-2 fs-7"  >العربيه</span>
+                                </div>
+                            {% else %}
+                                <div class="header d-flex align-items-center cursor-pointer px-3 py-2">
+                                    <span>
+                                        <img src="/assets/run2mind/images/ar.png" width="27px" height="20px" loading="lazy" decoding="async"
+                                            alt="">
+                                    </span>
+                                    <span class="text px-1 px-lg-2 fs-7">العربيه</span>
+                                   
+                                </div>
+                                <div  class="body d-flex align-items-center cursor-pointer"  >
+                                    <span>
+
+                                        <img src="/assets/run2mind/images/en.png" width="27px" height="20px" loading="lazy" decoding="async"
+                                            alt="">
+                                    </span>
+                                    <span class="text px-1 px-lg-2 fs-7"  >English</span>
+                                </div>
+							{% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="menu-btn" class="d-block d-lg-none menuBtn">
+                        <div class="btnLine"></div>
+                        <div class="btnLine"></div>
+                        <div class="btnLine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+ 
+	<!--  BEGIN CONTENT AREA  -->
+        {% block content_area %}{% endblock %}
+    <!--  END CONTENT AREA  -->
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between g-4">
+                <div class="col-12 col-lg-3">
+                    <div class="logo d-flex justify-content-between flex-column">
+                        <div class="img">
+                            <img src="{% static '/run2mind/images/logo-white.png' %}" alt="logo" class="w-100">
+                        </div>
+                        <p class="fw-300">
+                            {% trans "You can count on us for a
+                            Better life with sound Mental
+                            Health, safely and Security." %}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 ">
+                    <div class="links d-flex flex-column">
+                        <h4 class="fw-700">{% trans "Quick Links" %}</h4>
+                        <h6 class="fw-300">
+                            <a href="experts.html">{% trans "Doctors & Therapists" %}</a>
+                        </h6>
+                        <h6 class="fw-300">
+                            <a href="chat.html">{% trans "Chat" %}</a>
+                        </h6>
+                        <h6 class="fw-300 d-flex main-soon">
+                            <a href="plans.html">{% trans "Plans" %}</a>
+                            <!-- <span class="soon">soon</span> -->
+                        </h6>
+                        <h6 class="fw-300">
+                            <a href="{% url 'login:login' %}">{% trans "Login" %}</a>
+                        </h6 class="fw-300">
+                        <h6 class="fw-300">
+                            <a href="{% url 'login:patientsignup' %}">{% trans "Sign Up" %}</a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-block d-md-none">
+                    <h4>{% trans "Follow us" %}</h4>
+                    <div class="icons mt-2">
+                        <ul class="social-links d-flex">
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/face.svg' %}" alt="facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/instgram.svg' %}" alt="instgram">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/whats.svg' %}" alt="whatsapp">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/yout.svg' %}" alt="youtube">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="google mt-2 mt-md-4">
+                        <span class="soon">{% trans "soon" %}</span>
+                        <div class="img">
+                            <img src="{% static '/run2mind/images/app.svg' %}" alt="app-store">
+                        </div>
+                        <div class="img">
+                            <img src="{% static '/run2mind/images/play.svg' %}" alt="google-play">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="links d-flex flex-column">
+                        <h4>{% trans "Tech Support" %}</h4>
+                        <h6 class="fw-300">
+                            <a href="#">{% trans "Privacy Policy" %}</a>
+                        </h6>
+                        <h6 class="fw-300">
+                            <a href="#">{% trans "Terms of Service" %}</a>
+                        </h6>
+                        <h6 class="fw-300">
+                            <a href="#">{% trans "Refund Policy" %}</a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3  d-none d-md-block">
+                    <h4>{% trans "Follow us" %}</h4>
+                    <div class="icons mt-2">
+                        <ul class="social-links d-flex">
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/face.svg' %}" alt="facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/instgram.svg' %}" alt="instgram">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/whats.svg' %}" alt="whatsapp">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="navLink">
+                                    <img src="{% static '/run2mind/images/yout.svg' %}" alt="youtube">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="google mt-2 mt-md-4">
+                        <span class="soon">{% trans "soon" %}</span>
+                        <div class="img">
+                            <img src="{% static '/run2mind/images/app.svg' %}" alt="app-store">
+                        </div>
+                        <div class="img">
+                            <img src="{% static '/run2mind/images/play.svg' %}" alt="google-play">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright mt-3 mt-md-5 text-center fw-400">
+                {% trans "Copyright © 2024 All rights reserved to run2mind Design & develop by Polymotech Co." %}
+            </div>
+        </div>
+    </footer>
+
+    <div class="img-chat">
+        <img id="chat-icon" src="{% static '/run2mind/images/chat.png' %}" alt="chat">
+		
+<!-- الصندوق الذي يظهر عند الضغط -->
+<div id="chat-box" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 320px; background: white; border: 1px solid #ccc; border-radius: 10px; padding: 10px 10px 10px 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1000;">
+
+    <!-- زر الإغلاق -->
+    <div style="text-align: right;">
+        <button id="close-chat-box"  style="border: none; background: transparent; font-size: 30px; font-weight: 900;  cursor: pointer;">×</button>
+    </div>
+
+    <!-- محتوى الرسالة -->
+    <textarea id="messageBox" placeholder="{% trans 'write your massage' %}" style="width: 100%; height: 80px; resize: none;"></textarea>
+    <button id="send-message-btn" class="success" style="margin: 5px auto 0; width: 40%; display: block;">{% trans "Send" %}</button>
+
+</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+		<!-- إضافة مكتبة jQuery عبر CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script src="{% static '/run2mind/js/rSlider.min.js' %}"></script>
+	<script src="{% static '/run2mind/js/main.js' %}"></script>
+	
+<script>
+$(document).ready(function () {
+    const $html = $("html");
+    const $languageContainers = $(".select-language");
+
+    if (!$html.attr("dir")) {
+        $html.attr("dir", "ltr");
+        $html.attr("lang", "en");
+    }
+
+    if ($languageContainers.length !== 0) {
+        $languageContainers.on("click", function (e) {
+            const $langContainer = $(this);
+
+            $langContainer.toggleClass("open");
+
+            if ($(e.target).closest('.body').length > 0) {
+                let newLanguage = "";
+                let newDir = "";
+                let newUrl = "";
+
+                if ($html.attr("dir") === "ltr") {
+                    $html.attr("dir", "rtl");
+                    $html.attr("lang", "ar");
+                    newLanguage = "ar";
+                    newDir = "rtl";
+                } else {
+                    $html.attr("dir", "ltr");
+                    $html.attr("lang", "en");
+                    newLanguage = "en";
+                    newDir = "ltr";
+                }
+
+                localStorage.setItem("language", newLanguage);
+                localStorage.setItem("dir", newDir);
+
+                const currentUrl = window.location.href;
+                const urlParts = currentUrl.split('/');
+
+                if (newLanguage === "ar") {
+                    urlParts[3] = "ar"; 
+                } else {
+                    urlParts[3] = "en"; 
+                }
+
+                newUrl = urlParts.join('/');
+                window.location.href = newUrl;
+            }
+        });
+    }
+
+    const savedLanguage = localStorage.getItem("language");
+    const savedDir = localStorage.getItem("dir");
+
+    if (savedLanguage && savedDir) {
+        $html.attr("lang", savedLanguage);
+        $html.attr("dir", savedDir);
+    }
+	
+	//ChatBox
+	$('#chat-icon').on('click', function () {
+		$('#chat-box').toggle();
+	});
+	$('#send-message-btn').on('click', function () {
+		var message = $('#messageBox').val().trim();
+		if (message !== "") {
+			console.log("تم الإرسال: " + message);
+			$('#messageBox').val('');  	
+		}
+	});
+	$('#close-chat-box').on('click', function () {
+		$('#chat-box').hide();
+	});
+
+
+});
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,419 @@
+// start hero section
+.hero {
+    padding-top: 8rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    @media screen and (max-width:991px) {
+        height: auto;
+        padding-top: 10rem;
+        margin-bottom: 2rem;
+    }
+    @media screen and (max-width:576px) {
+        padding-top: 7rem;
+    }
+
+    .left {
+        position: relative;
+        z-index: 1;
+        
+        h4 {
+            color: $light-color;
+            margin: 0;
+        }
+
+        .chooes {
+            gap: 1rem;
+        }
+
+        h1 {
+            color: $main-color;
+            font-size: 65px;
+            line-height: 75px;
+
+            @media screen and (max-width:$breakpoint-4xl) {
+                font-size: 40px;
+                line-height: 55px;
+            }
+
+            @media screen and (max-width:$breakpoint-sm) {
+                line-height: 30px;
+            }
+        }
+
+        h5 {
+            color: $light-black;
+            font-size: 25px;
+
+            @media screen and (max-width: $breakpoint-4xl) {
+                font-size: 18px;
+            }
+        }
+
+        .buttons {
+            gap: 1.5rem;
+        }
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -15%;
+            left: 10%;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("../../assets/images/two.png");
+            width: 100%;
+            height: 38rem;
+            z-index: -1;
+
+            [dir=rtl] & {
+                left: auto;
+                right: 10%;
+            }
+            @media screen and (max-width: $breakpoint-4xl) {
+                height: 35rem;
+                top: -14%;
+            }
+            @media screen and (max-width: 991px) {
+                top: -10%;
+                height: 30rem;
+            }
+            @media screen and (max-width: 576px) {
+                display: none;
+            }
+        }
+    }
+}
+// end hero section
+
+// start connect section
+.connect {
+    overflow: hidden;
+    margin-inline: auto;
+    text-align: center;
+    background-color: #F5F5F5;
+    padding: 4rem 0;
+
+    @media screen and (max-width:576px) {
+        padding: 2.5rem 0;
+    }
+    .container {
+        width: 60%;
+        @media screen and (max-width: 1400px) {
+            width: auto;
+        }
+    }
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .bg {
+            @include icons(#D0EFF0, #9ce3e5)
+        }
+    }
+    h3 {
+        color:$light-color;
+        
+        font-size: 40px;
+
+        @media screen and (max-width:$breakpoint-4xl) {
+            font-size: 28px;
+        }
+    }
+    h6 {
+        font-size: 20px;
+
+        @media screen and (max-width:$breakpoint-4xl) {
+            font-size: 16px;
+        }
+    }
+    h2 {
+        color:$main-color;
+        font-size: 45px;
+        width: 70%;
+        @media screen and (max-width:576px) {
+            width: 100%;
+        }
+        br {
+            display: none;
+        }
+        br {
+            display: none;
+        }
+        
+        &.title {
+            width: 90%;
+            margin-inline: auto;
+
+            @media screen and (max-width:576px) {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:$breakpoint-4xl) {
+            font-size: 30px;
+        }
+        @media screen and (max-width:991px) {
+            font-size: 25px;
+        }
+    }
+    .images {
+        gap: 1.5rem;
+        .img1 {
+            height: 25rem;
+            width: 25rem;
+
+            @media screen and (max-width: 778px) {
+                height: 12rem;
+                width: 12rem;
+            }
+        }
+        .img2 {
+            height: 15rem;
+            width: 15rem;
+            @media screen and (max-width: 778px) {
+                height: 8rem;
+                width: 8rem;
+            }
+        }
+    }
+    .chooes{
+        h4 {
+            color:$light-color;
+            font-size: 40px;
+
+            @media screen and (max-width:$breakpoint-4xl) {
+                font-size: 20px;
+            }
+        }
+        gap: .5rem;
+    }
+}
+// end connect section
+
+// start talk section
+.talk {
+    padding: 4rem 0;
+    @media screen and (max-width:576px) {
+        padding: 2.5rem 0;
+    }
+    .left {
+        .one {
+            color: $light-color;
+        }
+        h2 {
+            color: $main-color;
+            font-size: 40px;
+
+            &.title {
+                font-size: 32px;
+                @media screen and (max-width:$breakpoint-4xl) {
+                    font-size: 32px;
+                }
+            }
+
+            @media screen and (max-width:$breakpoint-4xl) {
+                font-size: 25px;
+            }
+        }
+        p {
+            color: $light-black;
+            font-size: 20px;
+
+            @media screen and (max-width:$breakpoint-4xl) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 100%;
+            @media screen and (max-width:576px) {
+                width: 90%;
+            }
+        }
+    }
+}
+// start talk section
+
+// start work section
+.work {
+    margin-inline: auto;
+    text-align: center;
+    overflow: hidden;
+    background-color: white;
+    padding: 4rem 0;
+    @media screen and (max-width:576px) {
+        padding: 2.5rem 0;
+    }
+    @media screen and (max-width: 576px) {
+        padding-bottom: 1rem;
+    }
+    .container {
+        width: 50%;
+        @media screen and (max-width: 1400px) {
+            width: auto;
+        }
+    }
+
+    h2 {
+        color: $light-color;
+        font-size: 40px;
+
+        @media screen and (max-width:$breakpoint-4xl) {
+            font-size: 32px;
+        }
+    }
+    .h2 {
+        color: $main-color;
+    }
+
+    .icons {
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+
+            .bg {
+                @include icons(#6731914D, rgba(174, 115, 223, 0.302))
+            }
+            h6 {
+                font-size: 20px;
+
+                @media screen and (max-width:$breakpoint-4xl) {
+                    font-size: 16px;
+                }
+            }
+        } 
+        .item1 {
+            position: relative;
+
+            &::after {
+                content: '';
+                background-image: url("../../assets/images/arrow-top.svg");
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 0;
+                right: -4.5rem;
+                height: 3rem;
+                width: 10rem;
+
+                [dir= rtl] & {
+                    right: auto;
+                    left: -4.5rem;
+                }
+                @media screen and (max-width: 991px) {
+                    width: 7rem;
+                    right: -3.5rem;
+
+                    [dir= rtl] & {
+                        right: auto;
+                        left:  -3.5rem;
+                    }
+                }
+                @media screen and (max-width: 576px) {
+                    width: 3rem;
+                    right: -1.7rem;
+
+                    [dir= rtl] & {
+                        right: auto;
+                        left: -1.7rem;
+                    }
+                }
+            }
+        }
+        .item2 {
+            position: relative;
+            padding: 4rem 0;
+            @media screen and (max-width:576px) {
+                padding: 2.5rem 0;
+            }
+
+            &::after {
+                content: '';
+                background-image: url("../../assets/images/arrow-bottom.svg");
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: absolute;
+                bottom: 0;
+                right: -5rem;
+                height: 3rem;
+                width: 10rem;
+
+                [dir= rtl] & {
+                    right: auto;
+                    left: -5rem;
+                }
+
+                @media screen and (max-width: 991px) {
+                    width: 7rem;
+                    right: -3rem;
+
+                    [dir= rtl] & {
+                        right: auto;
+                        left: -3rem;
+                    }
+                }
+                @media screen and (max-width: 576px) {
+                    width: 3rem;
+                    right: -1.7rem;
+
+                    [dir= rtl] & {
+                        right: auto;
+                        left: -1.7rem;
+                    }
+                }
+            }
+        }
+    }
+}
+// end work section
+
+// start team section
+.team {
+    padding: 3rem 0;
+    @media screen and (max-width: 576px) {
+        padding: 1.5rem 0;
+    }
+    .chooes {
+        gap: .5rem;
+        h4 {
+            color: $light-color;
+
+            font-size: 40px;
+
+            @media screen and (max-width:$breakpoint-4xl) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    h2 {
+        color: $main-color;
+        font-size: 65px;
+        width: 80%;
+
+        @media screen and (max-width:$breakpoint-4xl) {
+            font-size: 32px;
+        }
+        @media screen and (max-width: 576px) {
+            width: 90%;
+        }
+    }
+}
+// end team section

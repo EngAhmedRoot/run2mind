@@ -1,0 +1,302 @@
+.underline {
+    background-color: $white-color;
+    padding: .7rem 0;
+    box-shadow: 0px 5px 0px #0000;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    z-index: 300;
+    
+    .rel {
+        position: relative;
+    }
+    .main-nav {
+        .nav-container {
+            .logo {
+                padding: 0 .4rem;
+            }
+            
+            .login {
+                color: $main-color;
+                font-size: .87rem;
+            }
+    
+            .btn-main {
+                padding: 15px 15px;
+                // font-family: 'montserrat-reg';
+                font-size: 14px;
+            }
+            
+            ul {
+                transition: all .5s ease;
+                gap: 2rem;
+                
+                #blog {
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top: -1rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+                li {
+                    a {
+                        text-transform: uppercase;
+                        color: $light-color;
+                        transition: all .5s;
+                        position: relative;
+                        padding: .8rem;
+                        font-size: 15px;
+    
+                        &::after {
+                            position: absolute;
+                            bottom: -.7rem;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            width: 0%;
+                            content: '';
+                            color: transparent;
+                            background: $main-color;
+                            height: 3px;
+                        }
+    
+                        &.active {
+                            color: $main-color;
+                            &::after {
+                                width: 100%;
+                            }
+                        }
+    
+                        &:hover {
+                            transition: all .5s;
+                            color: $main-color;
+                            z-index: 1;
+    
+                            &::after {
+                                transition: all .5s;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        .menuBtn {
+            left: 1.4rem;
+            cursor: pointer;
+            z-index: 300;
+
+            .btnLine {
+                height: 3px;
+                margin: 0 0 0.4rem 0;
+                border-radius: 6px;
+                background: $main-color;
+                transition: all 0.3s ease;
+                position: relative;
+                z-index: 400;
+
+                &:nth-child(1) {
+                    width: 1.5rem;
+                }
+
+                &:nth-child(2) {
+                    width: 1.9rem;
+                }
+
+                &:nth-child(3) {
+                    width: 1rem;
+                }
+            }
+        }
+
+        .closeMenu {
+            margin-right: -4rem;
+            .btnLine {
+                background: $white-color;
+
+                // rotate LINE 1
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                    width: 1.9rem;
+                }
+
+                // hide LINE 2
+                &:nth-child(2) {
+                    opacity: 0;
+                    transform: translateX(20px);
+                }
+
+                // rotate LINE 3
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(9px, -9px);
+                    width: 1.9rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .underline {
+        .nav-container {
+            ul {
+                gap: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width: 991px) {
+    .underline {
+        .main-nav {
+            .nav-container {
+                width: 20rem;
+                transition: all 1s ease;
+                display: flex;
+                gap: 1rem;
+                position: absolute;
+                top: -.7rem;
+                right: -200%;
+                flex-direction: column;
+                background-color: $main-color;
+                z-index: 100;
+                height: 100vh;
+                gap: 2rem;
+
+                [dir=rtl] & {
+                    right: auto;
+                    left: -200%;
+                }
+
+                .end-nav {
+                    gap: 1.5rem;
+                }
+
+                .login {
+                    color: $white-color;
+                }
+
+                &.right {
+                    transition: all 500ms ease;
+                    right: 0;
+
+                    [dir=rtl] & {
+                        right: auto;
+                        left: 0;
+                    }
+                }
+                .popup {
+                    position: absolute;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    top: 0;
+                    right: 100%;
+                    width: 70vw;
+                    height: 100vh;
+
+                    [dir=rtl] & {
+                        right: auto;
+                        left: 100%;
+                    }
+    
+                    @media screen and (max-width:576px) {
+                        width: 50vw;
+                    }
+                }
+                .btn-main {
+                    padding: 10px 15px;
+                    &.light {
+                        color: $main-color;
+                        background-color: $white-color;
+                    }
+                }
+                ul {
+    
+                    #blog {
+                        span {
+                            left: 7rem;
+                            top: .7rem;
+
+                            
+                        [dir=rtl] & {
+                            left: auto;
+                            right: 5rem;
+                        }
+                        }
+                    }
+    
+                    li {
+                        a {
+                            &.active {
+                                color: white;
+                                &::after {
+                                    width: 0;
+                                }
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                
+                
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .underline {
+        .main-nav {
+            .logo {
+                img {
+                    width: 6rem;
+                    height: 3rem;
+                    object-fit: contain;
+                }
+            }
+            .nav-container {
+                gap: 1rem;
+                width: 15rem;
+
+                .end-nav {
+                    gap: 1rem;
+                }
+    
+                ul {
+                    gap: 1rem;
+                    #blog {
+                        span {
+                            left: 6rem;
+
+                            [dir=rtl] & {
+                                left: auto;
+                                right: 3rem;
+                            }
+                        }
+                    }
+                }
+    
+            }
+            .closeMenu {
+                margin-right: 0;
+                .btnLine {
+
+                    // rotate LINE 1
+                    &:nth-child(1) {
+                        width: 1.5rem;
+                    }
+
+                    // rotate LINE 3
+                    &:nth-child(3) {
+                        transform: rotate(-45deg) translate(8px, -9px);
+                        width: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

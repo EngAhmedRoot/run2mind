@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-22 18:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:35
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:91
+msgid "Years Of Experience"
+msgstr "سنوات الخبرة"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:40
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:96
+msgid "EGP"
+msgstr "ج.م"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:41
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:97
+msgid "/ Session"
+msgstr "/ الجلسة"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:45
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:119
+msgid "Ready at"
+msgstr "متاح في"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:52
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:127
+msgid "Booking"
+msgstr "حجز"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:55
+msgid "View Profile"
+msgstr "عرض الملف الشخصي"
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:76
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:88
+msgid "First"
+msgstr ""
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:138
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:150
+msgid "Last"
+msgstr ""
+
+#: .\expertsessions\templates\expertsessions\_expertsessions_list_partial.html:163
+msgid "No experts found matching your filters."
+msgstr "لم يتم العثور على خبراء مطابقين لخيارات التصفية الخاصة بك."
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:6
+msgid "Expert Detail"
+msgstr "تفاصيل الخبير"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:19
+msgid "THERAPIST PROFILE"
+msgstr "ملف المعالج"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:26
+msgid "Expert Details"
+msgstr "تفاصيل الخبير"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:48
+msgid "How Run2Mind Work"
+msgstr "كيف يعمل Run2Mind"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:72
+msgid "THERAPIST:"
+msgstr "المعالج:"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:80
+msgid "Specialization:"
+msgstr "التخصص:"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:94
+msgid "Price:"
+msgstr "السعر:"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:100
+msgid "Language:"
+msgstr "اللغة:"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:109
+msgid "Duration:"
+msgstr "المدة:"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:112
+msgid "minutes"
+msgstr "دقائق"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:131
+msgid "Start Chat"
+msgstr "ابدأ المحادثة"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:134
+msgid "My Profile"
+msgstr "ملفي الشخصي"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_detail.html:172
+msgid "Today"
+msgstr "اليوم"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:6
+msgid "Experts"
+msgstr "الخبراء"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:18
+msgid "Meet our Experts"
+msgstr "تعرف على خبرائنا"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:34
+msgid "THERAPISTS Filter"
+msgstr "تصفية المعالجين"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:56
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:62
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:228
+msgid "Filter"
+msgstr "تصفية"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:79
+msgid "Availability"
+msgstr "مدى التوفر"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:88
+msgid "Emergency"
+msgstr "طارئ"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:89
+msgid "(Strat in 20 Min)"
+msgstr "(يبدأ خلال 20 دقيقة)"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:99
+msgid "Duration"
+msgstr "المدة"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:104
+msgid "30 Min"
+msgstr "30 دقيقة"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:110
+msgid "60 Min"
+msgstr "60 دقيقة"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:118
+msgid "Gender"
+msgstr "الجنس"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:123
+msgid "Male"
+msgstr "ذكر"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:129
+msgid "Female"
+msgstr "أنثى"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:137
+msgid "Language"
+msgstr "اللغة"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:142
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:148
+msgid "English"
+msgstr "الإنجليزية"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:156
+msgid "Price"
+msgstr "السعر"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:166
+msgid "Apply"
+msgstr "تطبيق"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:171
+msgid "Clear"
+msgstr "مسح"
+
+#: .\expertsessions\templates\expertsessions\expertsessions_list.html:187
+msgid "Search Therapists"
+msgstr "البحث عن المعالجين"

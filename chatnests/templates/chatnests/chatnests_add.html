@@ -1,0 +1,91 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+
+{% block title %}
+    {% if 'add' in request.path %}
+        {% trans "Add Clinic Chat" %}
+    {% else %}
+        {% trans "Update Clinic Chat" %}
+    {% endif %}
+{% endblock %}
+
+{% block content_area %}
+<div id="content" class="main-content">
+    <div class="layout-px-spacing">
+        <div class="contact-us layout-top-spacing">
+            <div class="cu-contact-section" style="display: block;">
+                <div class="contact-form">
+                    <form method="post" class="" onsubmit="return validateForm();">
+                        <div class="cu-section-header mb-5">
+                            {% if 'add' in request.path %}
+                                <h3 style="color:#1f9f70;font-weight: bold;">{% trans 'New Clinic Chat' %}</h3>
+                            {% else %}
+                                <h3 style="color:#1f9f70;font-weight: bold;">{% trans 'Update Clinic Chat' %}</h3>
+                            {% endif %}
+                        </div>
+                        
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+                        <div class="row mb-3">
+                            <div class="col-5 input-fields">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="nameIcon"></span>
+                                    </div>
+                                    {{ form.participants.errors }}
+                                    {{ form.participants }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-2 col-2 input-fields">
+                                <button class="btn btn-primary btn-block mb-2" style="font-size: 18px;">
+                                    {% trans 'Save' %}
+                                </button>
+                            </div>
+                            <div class="col-sm-2 col-2 input-fields">
+                                <button class="btn btn-warning btn-block mb-2" style="font-size: 18px;" onclick="location.href='/{{LANGUAGE_CODE}}/clinicchats/list';">
+                                    {% trans "Cancel" %}
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="progressBar" style="display:none;">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%">Loading...</div>
+                            </div>
+                        </div>
+                        
+                        <div id="alertBox" class="alert alert-danger" style="display:none;">
+                            {% trans 'Please select at least one participant.' %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+
+
+    function validateForm() {
+        let participants = document.getElementById('id_participants').value;
+        if (!participants) {
+            $('#alertBox').show();
+            return false;
+        }
+        return true;
+    }
+
+    $('form').on('submit', function() {
+        $('#progressBar').show();
+    });
+	
+	});
+</script>
+{% endblock %}

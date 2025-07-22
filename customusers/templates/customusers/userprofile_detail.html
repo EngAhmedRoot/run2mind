@@ -1,0 +1,206 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {% trans "Expert Detail" %} {% endblock %}
+
+{% block content_area %}
+ 
+<!--  BEGIN CONTENT AREA  -->
+<div class="experts-page mb-5">
+        <!-- start hero section -->
+        <div class="experts-hero  mb-1">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-5">
+                        <div class="d-flex align-items-center mb-1 mb-md-2">
+                            <h4 class="fs-4 fw-bold cl-light">
+                                 {% trans "MY PROFILE" %}
+                            </h4>
+                            <p class="success fs-8 mx-2 mx-lg-3">RUN2MIND</p>
+                        </div>
+					</div>	
+					<div class="col-7">
+                        <h2 class=" fw-600 cl-main">
+                            {% trans "Profile Details" %} 
+                        </h2>	
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end hero section -->
+
+
+        <!-- Start Experts Main Sec -->
+        <div class="experts-main">
+            <div class="container">
+                <div class="row">
+                    <!--  -->
+                    <div class="col-lg-12">	
+					{% if customuser.user_type == 'expert' %}	
+						
+						<!-- Doctor Card -->
+                        <div
+                            class="doctor-card d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 px-2 px-sm-3 py-3 p-md-4">
+                            <div class="doctor-content gap-3 d-flex align-items-center mt-3 mb-3 mb-md-0">
+							
+								{% if profile.file.url != null %}
+                                <img src="{{ profile.file.url }}" alt="expert" loading="lazy" decoding="async" />
+								{% else %}
+								<img src="{% static '/run2mind/images/expert_image.jpg' %}"  alt="expert" loading="lazy" decoding="async" />
+								{% endif %}
+								
+								
+								
+                                <div class="text">
+									 <h4 class="mb-2 fs-4 fw-600 cl-main">
+										<span >{% trans "UserName:" %}<span>
+                                        {{ customuser.username}}
+                                    </h4>
+									
+                                    <h6 class="mb-2 fs-4 fw-600 py-1 cl-secondary">
+                                        {% trans "User Type:" %} {{ customuser.user_type }}
+                                    </h6>
+									
+								
+                                    <h4 class="mb-2 fs-4 fw-600 cl-main">
+										<span >{% trans "THERAPIST:" %}<span>
+                                        {% if LANGUAGE_CODE == "ar" %}
+											{{ profile.name_ar }} 
+										{% else %}
+											{{ profile.name_en }}  
+										{% endif %}
+                                    </h4>
+                                    <h6 class="mb-2 fs-4 fw-600 cl-secondary">
+                                        {% if LANGUAGE_CODE == "ar" %}
+											{{ profile.specialization_ar }}  
+										{% else %}
+											{{ profile.specialization_en }}  
+										{% endif %}
+                                    </h6>
+
+                                    <p class="fs-5 fw-700 py-1 cl-darkLight">
+                                       {{ profile.experience_years }}  {% trans "Years Of Experience" %}
+                                    </p>		                                                             
+                                </div>
+
+                            </div>
+
+                            <div class="doctor-actions text-center">
+
+								<!-- Profile Buttons -->
+								<div class="d-flex justify-content-center gap-2 mb-3 flex-wrap">
+									<a href="{% url 'customusers:detail' customuser.id %}" class="btn-main light px-3 px-md-4">
+										{% trans "Detail Profile" %}
+									</a>
+									<a href="{% url 'customusers:change' customuser.id %}" style="background-color:#f2f2f2;" class="btn-main px-3 px-md-4 fs-7 fw-600 cl-secondary cursor-pointer">
+										{% trans "Edit Profile" %}
+									</a>
+								</div>
+							
+								<!-- Expert Buttons -->
+								<div class="d-flex justify-content-center gap-2 flex-wrap">
+									<a href="{% url 'expertsessions:detail' profile.id %}" class="btn-main light px-3 px-md-4">
+										{% trans "Detail Expert" %}
+									</a>
+									<a href="{% url 'expertsessions:detail' profile.id %}" style="background-color:#f2f2f2;" class="btn-main px-3 px-md-4 fs-7 fw-600 cl-secondary cursor-pointer">
+										{% trans "Edit Expert" %}
+									</a>
+								</div>
+							
+							</div>
+
+                        </div>
+                    </div>
+                {% endif %}   
+				{% if customuser.user_type == 'patient' %}	
+
+						<!-- Patient Card -->
+                        <div
+                            class="doctor-card d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 px-2 px-sm-3 py-3 p-md-4">
+                            <div class="doctor-content gap-3 d-flex align-items-center mb-3 mb-md-0">
+							
+								{% if profile.file.url != null %}
+                                <img src="{{ profile.file.url }}" alt="expert" loading="lazy" decoding="async" />
+								{% else %}
+								<img src="{% static '/run2mind/images/expert_image.jpg' %}"  alt="expert" loading="lazy" decoding="async" />
+								{% endif %}
+								
+								
+								
+                                <div class="text">
+									<h4 class="mb-2 fs-4 fw-600 cl-main">
+										<span >{% trans "UserName:" %}<span>
+                                        {{ customuser.username}}
+                                    </h4>
+									
+                                    <h6 class="mb-2 fs-4 fw-600 py-1 cl-secondary">
+                                        {% trans "User Type:" %} {{ customuser.user_type }}
+                                    </h6>
+									
+                                    <h4 class="mb-2 fs-4 fw-600 cl-main">
+                                        {% if LANGUAGE_CODE == "ar" %}
+											{{ profile.name_ar }} 
+										{% else %}
+											{{ profile.name_en }}  
+										{% endif %}
+                                    </h4>
+                                    <h6 class="mb-2 fs-4 fw-600 cl-secondary">
+                                        {% if LANGUAGE_CODE == "ar" %}
+											{{ profile.specialization_ar }}  
+										{% else %}
+											{{ profile.specialization_en }}  
+										{% endif %}
+                                    </h6>
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+								
+
+                            </div>
+
+                        
+
+                            
+                            <div class="doctor-actions text-center">
+
+								<!-- Profile Buttons -->
+								<div class="d-flex justify-content-center gap-2 mb-3 flex-wrap">
+									<a href="{% url 'customusers:detail' customuser.id %}" class="btn-main light px-3 px-md-4">
+										{% trans "Detail Profile" %}
+									</a>
+									<a href="{% url 'customusers:change' customuser.id %}" style="background-color:#f2f2f2;" class="btn-main px-3 px-md-4 fs-7 fw-600 cl-secondary cursor-pointer">
+										{% trans "Edit Profile" %}
+									</a>
+								</div>
+							
+								<!-- Patient Buttons -->
+								<div class="d-flex justify-content-center gap-2 flex-wrap">
+									<a href="{% url 'patients:detail' profile.id %}" class="btn-main light px-3 px-md-4">
+										{% trans "Detail Patient" %}
+									</a>
+									<a href="{% url 'patients:detail' profile.id %}" style="background-color:#f2f2f2;" class="btn-main px-3 px-md-4 fs-7 fw-600 cl-secondary cursor-pointer">
+										{% trans "Edit Patient" %}
+									</a>
+								</div>
+							
+							</div>
+                        </div>
+                    </div>
+                {% endif %} 
+  
+            </div>
+        </div>
+        <!-- End of Experts Main Sec -->
+
+    </div>
+</div>
+<!--  END CONTENT AREA  -->
+
+{% endblock %}

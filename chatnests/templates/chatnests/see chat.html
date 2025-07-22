@@ -1,0 +1,353 @@
+ده كود ارسال الرساله القديم
+<script>
+$(document).ready(function() {
+    var chatBox = $('#chat-box');
+    chatBox.scrollTop(chatBox[0].scrollHeight); 
+
+    function scrollToBottom() {
+        chatBox.scrollTop(chatBox[0].scrollHeight);
+    }
+
+    var senderId = $("#senderId").val();
+    var receiverId = $("#receiverId").val();
+    var roomName = `chat_${Math.min(senderId, receiverId)}_${Math.max(senderId, receiverId)}`;
+
+    var socket = new WebSocket(`ws://127.0.0.1:8000/ws/chat/${roomName}/`);
+	
+	
+	// استخدم WebSocket لإرسال الرسائل واستقبالها
+    var roomName = $("#roomName").val();  // تأكد من أن لديك متغير `roomName` في الصفحة
+    var socket = new WebSocket('ws://127.0.0.1:8000/ws/chat/' + roomName + '/');  // الاتصال بخادم WebSocket
+
+    // عند الاتصال بالخادم عبر WebSocket
+    socket.onopen = function(event) {
+        console.log("Connected to WebSocket!");
+    };
+
+    $('#send-message-btn').click(function() {
+		var receiverId = $("#receiverId").val();
+        var senderId = $("#senderId").val();
+        
+        alert('senderId: ' + senderId + ', receiverId: ' + receiverId);
+    console.log("Receiver ID: " + receiverId);  // عرض receiverId في الـ console
+	
+    var messageContent = $('#messageBox').val().trim();  // الحصول على محتوى الرسالة
+    console.log("Message Content: " + messageContent);  // عرض محتوى الرسالة في الـ console
+    
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();  // الحصول على token CSRF
+    console.log("CSRF Token: " + csrfToken);  // عرض CSRF token في الـ console
+
+    if (messageContent !== "") {
+        // جمع البيانات عبر FormData
+        var formData = new FormData();
+        formData.append('content', messageContent);  // إضافة الرسالة
+        formData.append('receiver_id', receiverId);  // إضافة receiverId
+        formData.append('csrfmiddlewaretoken', csrfToken);  // إضافة csrfmiddlewaretoken
+
+        // بناء الـ URL بناءً على الـ receiverId
+        var url = "/" + window.location.pathname.split('/')[1] + "/chatnests/chatnests_messages/" + receiverId + "/";
+        
+		console.log("URL: " + url);  // عرض الـ URL في الـ console
+
+        // إرسال البيانات عبر AJAX
+        $.ajax({
+            url: url,  // رابط الـ URL المطلوب
+            type: 'POST',
+            data: formData,
+            processData: false,  // لا نقوم بمعالجة البيانات
+            contentType: false,  // لا نحدد نوع المحتوى
+            success: function(data) {
+                  // إعادة تعيين textarea بعد الإرسال
+                console.log("Message sent successfully!");
+                console.log(data);  // عرض الاستجابة من السيرفر في الـ console
+
+                // الحصول على التاريخ والوقت الحالي
+                var timestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+                
+                // HTML للرسالة الجديدة
+                var newMessageHTML = `
+					<li class="d-flex justify-content-end mb-4">
+						<div class="d-flex w-100 justify-content-end"> 
+							<div class="card w-100" style="width:60% !important">
+								<div class="card-header d-flex justify-content-between p-3" style="background-color: #ddc4f0;">
+									<p class="text-muted small mb-0"><i class="far fa-clock"></i> ${timestamp}</p>
+									<p class="fw-bold mb-0 text-start">${data.sender_name}</p>
+								</div>
+								<div class="card-body text-end">
+									<p class="mb-0">
+										${data.message_content}
+									</p>
+								</div>
+							</div>
+							${data.sender_avatar ? 
+							`<img src="${data.sender_avatar}" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">` : 
+							`<img src="/static/run2mind/images/profile_image.jpg" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">`}
+						</div>
+					</li>
+				`;
+			
+			
+				$('#chat-box').append(newMessageHTML);
+				$('#messageBox').val(''); 
+				scrollToBottom();
+			},
+            error: function(xhr) {
+                console.error("Error: " + xhr.responseText);
+            }
+        });
+    } else {
+        console.log("Message content cannot be empty.");
+    }
+
+        
+
+		
+	
+    });
+});
+
+</script>
+
+
+
+
+
+
+
+
+ده كود الويب socket المظبوط
+
+<script>
+$(document).ready(function() {
+    var chatBox = $('#chat-box');
+    chatBox.scrollTop(chatBox[0].scrollHeight);
+
+    function scrollToBottom() {
+        chatBox.scrollTop(chatBox[0].scrollHeight);
+    }
+
+    var senderId = $("#senderId").val();  // تأكد من أن senderId موجود في الـ HTML
+    var receiverId = $("#receiverId").val(); // تأكد من أن receiverId موجود في الـ HTML
+
+    // تحقق من أن senderId و receiverId موجودين قبل إنشاء roomName
+    if (senderId && receiverId) {
+        var roomName = `chat_${Math.min(senderId, receiverId)}_${Math.max(senderId, receiverId)}`;
+    } else {
+        console.error("Error: senderId or receiverId is undefined");
+        return;  // أوقف التنفيذ إذا كانت القيم غير موجودة
+    }
+
+    // الاتصال بـ WebSocket مع roomName الصحيح
+    var socket = new WebSocket(`ws://127.0.0.1:8000/ws/chat/${roomName}/`);
+
+    // عند الاتصال بالخادم عبر WebSocket
+    socket.onopen = function(event) {
+        console.log("Connected to WebSocket!");
+    };
+
+    $('#send-message-btn').click(function() {
+        var messageContent = $('#messageBox').val().trim();  // الحصول على محتوى الرسالة
+        console.log("Message Content: " + messageContent);  // عرض محتوى الرسالة في الـ console
+        
+        var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();  // الحصول على token CSRF
+        console.log("CSRF Token: " + csrfToken);  // عرض CSRF token في الـ console
+
+        if (messageContent !== "") {
+            // جمع البيانات عبر FormData
+            var formData = new FormData();
+            formData.append('content', messageContent);  // إضافة الرسالة
+            formData.append('receiver_id', receiverId);  // إضافة receiverId
+            formData.append('csrfmiddlewaretoken', csrfToken);  // إضافة csrfmiddlewaretoken
+
+            // بناء الـ URL بناءً على الـ receiverId
+            var url = "/" + window.location.pathname.split('/')[1] + "/chatnests/chatnests_messages/" + receiverId + "/";
+
+            console.log("URL: " + url);  // عرض الـ URL في الـ console
+
+            // إرسال البيانات عبر AJAX
+            $.ajax({
+                url: url,  // رابط الـ URL المطلوب
+                type: 'POST',
+                data: formData,
+                processData: false,  // لا نقوم بمعالجة البيانات
+                contentType: false,  // لا نحدد نوع المحتوى
+                success: function(data) {
+                    // إعادة تعيين textarea بعد الإرسال
+                    console.log("Message sent successfully!");
+                    console.log(data);  // عرض الاستجابة من السيرفر في الـ console
+
+                    // الحصول على التاريخ والوقت الحالي
+                    var timestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+                    // HTML للرسالة الجديدة
+                    var newMessageHTML = `
+                        <li class="d-flex justify-content-end mb-4">
+                            <div class="d-flex w-100 justify-content-end"> 
+                                <div class="card w-100" style="width:60% !important">
+                                    <div class="card-header d-flex justify-content-between p-3" style="background-color: #ddc4f0;">
+                                        <p class="text-muted small mb-0"><i class="far fa-clock"></i> ${timestamp}</p>
+                                        <p class="fw-bold mb-0 text-start">${data.sender_name}</p>
+                                    </div>
+                                    <div class="card-body text-end">
+                                        <p class="mb-0">
+                                            ${data.message_content}
+                                        </p>
+                                    </div>
+                                </div>
+                                ${data.sender_avatar ? 
+                                `<img src="${data.sender_avatar}" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">` : 
+                                `<img src="/assets/run2mind/images/profile_image.jpg" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">`}
+                            </div>
+                        </li>
+                    `;
+
+                    $('#chat-box').append(newMessageHTML);
+                    $('#messageBox').val('');
+                    scrollToBottom();
+                },
+                error: function(xhr) {
+                    console.error("Error: " + xhr.responseText);
+                }
+            });
+        } else {
+            console.log("Message content cannot be empty.");
+        }
+    });
+});
+</script>
+
+
+
+التحديث التلقائي
+<script>
+$(document).ready(function() {
+    var chatBox = $('#chat-box');
+    chatBox.scrollTop(chatBox[0].scrollHeight);
+
+    function scrollToBottom() {
+        chatBox.scrollTop(chatBox[0].scrollHeight);
+    }
+
+    var senderId = $("#senderId").val();  // تأكد من أن senderId موجود في الـ HTML
+    var receiverId = $("#receiverId").val(); // تأكد من أن receiverId موجود في الـ HTML
+
+    // تحقق من أن senderId و receiverId موجودين قبل إنشاء roomName
+    if (senderId && receiverId) {
+        var roomName = `chat_${Math.min(senderId, receiverId)}_${Math.max(senderId, receiverId)}`;
+    } else {
+        console.error("Error: senderId or receiverId is undefined");
+        return;  // أوقف التنفيذ إذا كانت القيم غير موجودة
+    }
+
+    // دالة لإعادة الاتصال بـ WebSocket عند انقطاع الاتصال
+    function connectWebSocket() {
+        var socket = new WebSocket(`ws://127.0.0.1:8000/ws/chat/${roomName}/`);
+
+        socket.onopen = function(event) {
+            console.log("Connected to WebSocket!");
+        };
+
+        socket.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            var messageContent = data.message_content;
+            var senderId = data.sender_id;
+            var receiverId = data.receiver_id;
+
+            // الحصول على التاريخ والوقت الحالي
+            var timestamp = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+            // HTML للرسالة الجديدة
+            var newMessageHTML = `
+                <li class="d-flex justify-content-end mb-4">
+                    <div class="d-flex w-100 justify-content-end"> 
+                        <div class="card w-100" style="width:60% !important">
+                            <div class="card-header d-flex justify-content-between p-3" style="background-color: #ddc4f0;">
+                                <p class="text-muted small mb-0"><i class="far fa-clock"></i> ${timestamp}</p>
+                                <p class="fw-bold mb-0 text-start">${data.sender_name}</p>
+                            </div>
+                            <div class="card-body text-end">
+                                <p class="mb-0">
+                                    ${messageContent}
+                                </p>
+                            </div>
+                        </div>
+                        ${data.sender_avatar ? 
+                        `<img src="${data.sender_avatar}" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">` : 
+                        `<img src="/static/run2mind/images/profile_image.jpg" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">`}
+                    </div>
+                </li>
+            `;
+
+            $('#chat-box').append(newMessageHTML);
+            scrollToBottom();
+        };
+
+        socket.onclose = function(event) {
+            console.log("WebSocket connection closed. Reconnecting...");
+            setTimeout(connectWebSocket, 1000);  // إعادة الاتصال بعد ثانية
+        };
+
+        socket.onerror = function(error) {
+            console.error("WebSocket Error: ", error);
+        };
+
+        return socket;
+    }
+
+    var socket = connectWebSocket();  // الاتصال بـ WebSocket
+
+    $('#send-message-btn').click(function() {
+        var messageContent = $('#messageBox').val().trim();  // الحصول على محتوى الرسالة
+        console.log("Message Content: " + messageContent);  // عرض محتوى الرسالة في الـ console
+        
+        var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();  // الحصول على token CSRF
+        console.log("CSRF Token: " + csrfToken);  // عرض CSRF token في الـ console
+
+        if (messageContent !== "") {
+            // جمع البيانات عبر FormData
+            var formData = new FormData();
+            formData.append('content', messageContent);  // إضافة الرسالة
+            formData.append('receiver_id', receiverId);  // إضافة receiverId
+            formData.append('csrfmiddlewaretoken', csrfToken);  // إضافة csrfmiddlewaretoken
+
+            // بناء الـ URL بناءً على الـ receiverId
+            var url = "/" + window.location.pathname.split('/')[1] + "/chatnests/chatnests_messages/" + receiverId + "/";
+
+            console.log("URL: " + url);  // عرض الـ URL في الـ console
+
+            // إرسال البيانات عبر AJAX
+            $.ajax({
+                url: url,  // رابط الـ URL المطلوب
+                type: 'POST',
+                data: formData,
+                processData: false,  // لا نقوم بمعالجة البيانات
+                contentType: false,  // لا نحدد نوع المحتوى
+                success: function(data) {
+                    // إعادة تعيين textarea بعد الإرسال
+                    console.log("Message sent successfully!");
+                    console.log(data);  // عرض الاستجابة من السيرفر في الـ console
+
+                    // إرسال الرسالة عبر WebSocket مباشرة
+                    if (socket.readyState === WebSocket.OPEN) {
+                        socket.send(JSON.stringify({
+                            'message_content': data.message_content,
+                            'sender_id': data.sender_id,
+                            'receiver_id': receiverId
+                        }));
+                    } else {
+                        console.log("WebSocket not open. Message not sent.");
+                    }
+                    
+                    $('#messageBox').val('');
+                    scrollToBottom();
+                },
+                error: function(xhr) {
+                    console.error("Error: " + xhr.responseText);
+                }
+            });
+        } else {
+            console.log("Message content cannot be empty.");
+        }
+    });
+});
+</script>

@@ -1,0 +1,141 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+{% block title %} {% trans "Doctors" %} {% endblock %}
+
+{% block content_area %}
+    <div id="content" class="main-content">
+            <div class="layout-px-spacing">
+                <div class="row layout-top-spacing" id="cancel-row">
+                    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+
+                        <a href="{% url 'doctors:add' %}">
+                            <button class="shadow-none btn btn-primary mt-2">{% trans "Add Doctor" %}</button>
+                        </a>
+					   <div class="widget-content widget-content-area br-6">
+                            <table  id="html5-extension" class="text-center table table-hover non-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans "Doctor Name" %}</th>
+										<th>{% trans "User Name" %}</th>
+                                        <th>{% trans "Specialization" %}</th>
+                                        <th>{% trans "Phone" %}</th>
+                                        <th>{% trans "Status" %}</th>
+                                        <th>{% trans "Action" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for doctor in doctors %}
+                                        <tr>
+                                            <td>{{doctor.name}}</td>
+											<td>{{doctor.user}}</td>
+                                            <td>{{doctor.specialization}}</td>
+                                            <td>{{doctor.phone}}</td>
+                                            <td>
+                                                {% if doctor.is_deleted == 'active' %}
+                                                    <span style="width:75px;" class="shadow-none badge badge-success">{{doctor.is_deleted| title}}</span>
+                                                {% else %}
+                                                        <span style="width:75px;" class="shadow-none badge badge-danger">{{doctor.is_deleted| title}}</span>
+                                                {% endif %}
+                                            </td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                    </a>
+                                                    <div  class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                                        <a class="dropdown-item" href="{% url 'doctors:detail' doctor.id %}">{% trans 'View' %}</a>
+                                                        <a class="dropdown-item" href="{% url 'doctors:change' doctor.id %}">{% trans 'Edit' %}</a>
+                                                        <a class="dropdown-item" href="{% url 'doctors:delete' doctor.id %}">{% trans 'Delete' %}</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-wrapper">
+                <div class="footer-section f-section-1">
+                    <p class="">Copyright © 2021 <a target="_blank" href="https://designreset.com">DesignReset</a>, All rights reserved.</p>
+                </div>
+                <div class="footer-section f-section-2">
+                    <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+                </div>
+            </div>
+        </div>
+
+	{% if messages %}
+	<script>
+		window.onload = function() {
+			const soundsPath = "./assets/clinics/plugins/lobibox/sounds/";
+		
+			{% for message in messages %}
+				{% if 'added' in message.tags %}
+					Lobibox.notify('success', {
+						title: '{% if LANGUAGE_CODE == "ar" %}تم الإنشاء{% else %}Created{% endif %}',
+						msg: '{{ message }}',
+						position: '{% if LANGUAGE_CODE == "ar" %}bottom left{% else %}bottom right{% endif %}',
+						sound: soundsPath + 'sound1.ogg',  
+						delay: 8000,
+						showClass: 'fadeInDown',
+						hideClass: 'fadeUpDown',
+						width: 380,
+						height: 150,
+						icon: 'fas fa-check-circle',
+						closeOnClick: false
+					});
+					{% elif 'changed' in message.tags %}
+					Lobibox.notify('warning', {
+						title: '{% if LANGUAGE_CODE == "ar" %}تم التحديث{% else %}Updated{% endif %}',
+						msg: '{{ message }}',
+						position: '{% if LANGUAGE_CODE == "ar" %}bottom left{% else %}bottom right{% endif %}',
+						sound: soundsPath + 'sound2.ogg',  
+						delay: 8000,
+						showClass: 'fadeInDown',
+						hideClass: 'fadeUpDown',
+						width: 380,
+						height: 150,
+						icon: 'fas fa-exclamation-circle',
+						closeOnClick: false
+					});
+					{% elif 'deactived' in message.tags %}
+					Lobibox.notify('error', {
+						title: '{% if LANGUAGE_CODE == "ar" %}تم التعطيل{% else %}Deactived{% endif %}',
+						msg: '{{ message }}',
+						position: '{% if LANGUAGE_CODE == "ar" %}bottom left{% else %}bottom right{% endif %}',
+						sound: soundsPath + 'sound3.ogg',  
+						delay: 8000,
+						showClass: 'fadeInDown',
+						hideClass: 'fadeUpDown',
+						width: 380,
+						height: 150,
+						icon: 'fas fa-times-circle',
+						closeOnClick: false
+					});
+					{% elif 'deleted' in message.tags %}
+					Lobibox.notify('error', {
+						title: '{% if LANGUAGE_CODE == "ar" %}تم الحذف{% else %}Deleted{% endif %}',
+						msg: '{{ message }}',
+						position: '{% if LANGUAGE_CODE == "ar" %}bottom left{% else %}bottom right{% endif %}',
+						sound: soundsPath + 'sound3.ogg',  
+						delay: 8000,
+						showClass: 'fadeInDown',
+						hideClass: 'fadeUpDown',
+						width: 380,
+						height: 150,
+						icon: 'fas fa-times-circle',
+						closeOnClick: false
+					});
+				{% endif %}
+			{% endfor %}
+		};
+	</script>
+	{% endif %}
+
+{% endblock %}

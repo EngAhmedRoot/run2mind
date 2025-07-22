@@ -1,0 +1,87 @@
+.chat {
+    padding-top: 9.5rem;
+    padding-bottom: 2rem;
+    height: 100vh;
+
+    @media screen and (max-width: $breakpoint-4xl) {
+        padding-top: 8.5rem;
+        height: auto;
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        padding-top: 6rem;
+        padding-bottom: 1rem;
+    }
+
+    .chooes {
+        gap: .5rem;
+
+        h4 {
+            font-size: 30px;
+            color: $light-color;
+
+            @media screen and (max-width: $breakpoint-4xl) {
+                font-size: 24px;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 65px;
+        color: $main-color;
+
+        @media screen and (max-width: $breakpoint-4xl) {
+            font-size: 32px;
+        }
+    }
+
+    .box {
+        .img {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            height: 20rem;
+
+            @media screen and (max-width: $breakpoint-sm) {
+                height: 8rem;
+            }
+
+            img {
+                margin-inline: auto;
+                height: 100%;
+                width: 20rem;
+
+                @media screen and (max-width: $breakpoint-sm) {
+                    width: 8rem;
+                }
+            }
+        }
+
+        h4 {
+            font-size: 30px;
+
+            @media screen and (max-width: $breakpoint-4xl) {
+                font-size: 24px;
+            }
+        }
+
+        .account {
+            gap: .4rem;
+
+            @media screen and (max-width: $breakpoint-sm) {
+                gap: .2rem;
+            }
+            h6 {
+                font-size: 20px;
+                color: $light-black;
+            }
+            a {
+                font-size: 20px; 
+                text-decoration: underline;
+                color: $success-color;
+            }
+        }
+    }
+}

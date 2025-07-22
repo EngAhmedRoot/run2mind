@@ -1,0 +1,81 @@
+// Minxins
+@mixin ease {
+    transition: all 400ms ease;
+}
+
+// button
+@mixin button {
+    font-family: 'montserrat-bold';
+    padding: 20px 55px;
+    border-radius: 10px;
+    font-size: 16px;
+    @include ease;
+
+    @media screen and (max-width: $breakpoint-4xl) {
+        padding: 20px 50px;
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: 576px) {
+        padding: 15px 35px;
+    }
+
+    &.light {
+        color: $main-color;
+        background-color: #4949490D;
+        box-shadow: 0px 0px 60px 0px rgba(73, 73, 73, 0.05);
+        @include ease;
+
+        &:hover {
+            @include ease;
+            box-shadow: 0px 0px 60px 0px rgba(103, 49, 145, 0.2);
+        }
+    }
+
+    &.white {
+        color: $main-color;
+        background-color: $white-color;
+        border: 1px solid $main-color;
+        box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.05);
+        @include ease;
+
+        &:hover {
+            box-shadow: 0px 0px 60px 0px rgba(103, 48, 145, 0.2);
+            @include ease;
+        }
+    }
+    &.primary {
+        background-color: $main-color;
+        color: #fff;
+        &:hover {
+            filter: drop-shadow(0px 0px 60px rgba(103, 49, 145, 0.40));
+        }
+    }
+}
+
+@mixin icons($background, $backgroundHover) {
+    width: 8rem;
+    height: 8rem;
+    background: $background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 36% 64% 70% 30% / 51% 59% 41% 49%;
+    // font-size: $size;
+    // line-height: $line;
+    // padding: 5px;
+    text-align: center;
+    transition: all ease 300ms;
+
+    @media screen and (max-width:576px) {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    &:hover {
+        background: $backgroundHover;
+        cursor: pointer;
+        border-radius: 70% 30% 36% 64% / 40% 52% 48% 60% ;
+    }
+}

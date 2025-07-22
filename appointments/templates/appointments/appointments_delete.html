@@ -1,0 +1,241 @@
+{% extends 'clinics/base.html'%}
+{% load i18n %}
+
+{% block title %} {% trans "Delete Appointment" %} {% endblock %}
+
+{% block content_area %}
+<!--  BEGIN CONTENT AREA  -->
+<div id="content" class="main-content"> 
+	<form method="post" action="{% url 'appointments:delete' object.pk %}">	
+        <div  class="col-lg-12 col-sm-12 col-12 ">
+            <div class="statbox widget box box-shadow">
+                <div class="widget-header">                                
+                    <div class="row mt-1 ">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">		
+                        {% csrf_token %}
+							<div class="cu-section-header">
+								<h3 style="color:#e7515a;font-weight: bold;">{% trans "Delete Appointment" %}</h3>
+								<h6 style="color:#e7515a;">{% trans "Are you sure you want to delete the following Appointment ?" %}</h6>
+							</div>		
+                        </div>
+                    </div>
+                </div>
+						
+                
+				<div class="widget-content" style="background-color:#f2fcf8;">
+					<div class="row mt-3 mb-4">
+						<div class="col-xl-4 col-md-4 col-sm-4 col-4">
+							<label class="input-group-label">{% trans 'Doctor Name' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.doctor }}"  disabled>
+							</div>
+							
+						</div>
+						<div class="col-xl-4 col-md-4 col-sm-4 col-4">
+							<label class="input-group-label">{% trans 'Patient Name' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg"  xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+											<path d="M16 11l2 2 4-4"></path>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.patient }}"  disabled>
+							</div>
+							
+						</div>
+						<div class="col-xl-4 col-md-4 col-sm-4 col-4">
+							<label class="input-group-label" style="padding-bottom: 9px">{% trans 'Booking Type' %}</label>
+							<div class="input-group">
+								<div class=" align-items-center" style="  #ced4da; border-radius: 4px;  height: 47px; display:list-item;">
+									<label class="new-control new-checkbox new-checkbox-rounded checkbox-success">
+										<input type="radio" name="booking_type" value="phone" class="new-control-input" {% if object.booking_type == 'phone' %}checked{% endif %} disabled>
+										<span class="new-control-indicator"></span>
+										<strong style="color: #1f9f70; font-weight: 800; font-size: 16px;">Phone</strong>
+									</label>
+									
+									<label class="new-control new-checkbox new-checkbox-rounded checkbox-warning">
+										<input type="radio" name="booking_type" value="online" class="new-control-input" {% if object.booking_type == 'online' %}checked{% endif %} disabled>
+										<span class="new-control-indicator"></span>
+										<strong style="color: #ffc107; font-weight: 800; font-size: 16px;">Online</strong>
+									</label>			
+								</div>
+							</div>						
+						</div>				
+					</div>
+	
+					<div class="row mt-5 mb-4">
+						<div class="col-xl-4 col-md-4 col-sm-4 col-4">
+							<label class="input-group-label">{% trans 'Doctor Schedule' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg fill="#1f9f70" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="24px" height="24px">
+											<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+											<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+											<g id="SVGRepo_iconCarrier"> <g> <g> <g> <rect x="187.733" y="281.6" width="51.2" height="51.2"/> <rect x="68.267" y="401.067" width="51.2" height="51.2"/> <rect x="187.733" y="401.067" width="51.2" height="51.2"/> <rect x="68.267" y="162.133" width="51.2" height="51.2"/> <path d="M426.667,59.733c0-14.114-11.486-25.6-25.6-25.6h-34.133v-25.6c0-4.719-3.814-8.533-8.533-8.533h-34.133 c-4.719,0-8.533,3.814-8.533,8.533v25.6h-204.8v-25.6c0-4.719-3.814-8.533-8.533-8.533H68.267c-4.719,0-8.533,3.814-8.533,8.533 v25.6H25.6c-14.114,0-25.6,11.486-25.6,25.6V102.4h426.667V59.733z"/> <rect x="187.733" y="162.133" width="51.2" height="51.2"/> <path d="M307.2,418.133c0-61.167,49.766-110.933,110.933-110.933c2.884,0,5.709,0.213,8.533,0.435V119.467H0V486.4 C0,500.514,11.486,512,25.6,512h333.688C328.064,492.348,307.2,457.668,307.2,418.133z M136.533,460.8 c0,4.719-3.814,8.533-8.533,8.533H59.733c-4.719,0-8.533-3.814-8.533-8.533v-68.267c0-4.719,3.814-8.533,8.533-8.533H128 c4.719,0,8.533,3.814,8.533,8.533V460.8z M136.533,341.333c0,4.719-3.814,8.533-8.533,8.533H59.733 c-4.719,0-8.533-3.814-8.533-8.533v-68.267c0-4.719,3.814-8.533,8.533-8.533H128c4.719,0,8.533,3.814,8.533,8.533V341.333z M136.533,221.867c0,4.719-3.814,8.533-8.533,8.533H59.733c-4.719,0-8.533-3.814-8.533-8.533V153.6 c0-4.719,3.814-8.533,8.533-8.533H128c4.719,0,8.533,3.814,8.533,8.533V221.867z M256,460.8c0,4.719-3.814,8.533-8.533,8.533 H179.2c-4.719,0-8.533-3.814-8.533-8.533v-68.267c0-4.719,3.814-8.533,8.533-8.533h68.267c4.719,0,8.533,3.814,8.533,8.533V460.8 z M256,341.333c0,4.719-3.814,8.533-8.533,8.533H179.2c-4.719,0-8.533-3.814-8.533-8.533v-68.267 c0-4.719,3.814-8.533,8.533-8.533h68.267c4.719,0,8.533,3.814,8.533,8.533V341.333z M256,221.867 c0,4.719-3.814,8.533-8.533,8.533H179.2c-4.719,0-8.533-3.814-8.533-8.533V153.6c0-4.719,3.814-8.533,8.533-8.533h68.267 c4.719,0,8.533,3.814,8.533,8.533V221.867z M290.133,221.867V153.6c0-4.719,3.814-8.533,8.533-8.533h68.267 c4.719,0,8.533,3.814,8.533,8.533v68.267c0,4.719-3.814,8.533-8.533,8.533h-68.267 C293.948,230.4,290.133,226.586,290.133,221.867z"/> <rect x="307.2" y="162.133" width="51.2" height="51.2"/> <rect x="68.267" y="281.6" width="51.2" height="51.2"/> <path d="M418.133,324.267c-51.755,0-93.867,42.112-93.867,93.867S366.379,512,418.133,512S512,469.888,512,418.133 S469.888,324.267,418.133,324.267z M443.733,426.667h-25.6c-4.719,0-8.533-3.814-8.533-8.533v-51.2 c0-4.719,3.814-8.533,8.533-8.533s8.533,3.814,8.533,8.533V409.6h17.067c4.719,0,8.533,3.814,8.533,8.533 S448.452,426.667,443.733,426.667z"/> </g> </g> </g> </g>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.doctorschedule }}"  disabled>
+							</div>
+							
+						</div>
+						<div class="col-xl-4 col-md-4 col-sm-4 col-4">
+							<label class="input-group-label">{% trans 'Appointment Date' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg fill="#1f9f70" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="24px" height="24px">
+											<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+											<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+											<g id="SVGRepo_iconCarrier"> <g> <g> <g> <rect x="187.733" y="281.6" width="51.2" height="51.2"/> <rect x="68.267" y="401.067" width="51.2" height="51.2"/> <rect x="187.733" y="401.067" width="51.2" height="51.2"/> <rect x="68.267" y="162.133" width="51.2" height="51.2"/> <path d="M426.667,59.733c0-14.114-11.486-25.6-25.6-25.6h-34.133v-25.6c0-4.719-3.814-8.533-8.533-8.533h-34.133 c-4.719,0-8.533,3.814-8.533,8.533v25.6h-204.8v-25.6c0-4.719-3.814-8.533-8.533-8.533H68.267c-4.719,0-8.533,3.814-8.533,8.533 v25.6H25.6c-14.114,0-25.6,11.486-25.6,25.6V102.4h426.667V59.733z"/> <rect x="187.733" y="162.133" width="51.2" height="51.2"/> <path d="M307.2,418.133c0-61.167,49.766-110.933,110.933-110.933c2.884,0,5.709,0.213,8.533,0.435V119.467H0V486.4 C0,500.514,11.486,512,25.6,512h333.688C328.064,492.348,307.2,457.668,307.2,418.133z M136.533,460.8 c0,4.719-3.814,8.533-8.533,8.533H59.733c-4.719,0-8.533-3.814-8.533-8.533v-68.267c0-4.719,3.814-8.533,8.533-8.533H128 c4.719,0,8.533,3.814,8.533,8.533V460.8z M136.533,341.333c0,4.719-3.814,8.533-8.533,8.533H59.733 c-4.719,0-8.533-3.814-8.533-8.533v-68.267c0-4.719,3.814-8.533,8.533-8.533H128c4.719,0,8.533,3.814,8.533,8.533V341.333z M136.533,221.867c0,4.719-3.814,8.533-8.533,8.533H59.733c-4.719,0-8.533-3.814-8.533-8.533V153.6 c0-4.719,3.814-8.533,8.533-8.533H128c4.719,0,8.533,3.814,8.533,8.533V221.867z M256,460.8c0,4.719-3.814,8.533-8.533,8.533 H179.2c-4.719,0-8.533-3.814-8.533-8.533v-68.267c0-4.719,3.814-8.533,8.533-8.533h68.267c4.719,0,8.533,3.814,8.533,8.533V460.8 z M256,341.333c0,4.719-3.814,8.533-8.533,8.533H179.2c-4.719,0-8.533-3.814-8.533-8.533v-68.267 c0-4.719,3.814-8.533,8.533-8.533h68.267c4.719,0,8.533,3.814,8.533,8.533V341.333z M256,221.867 c0,4.719-3.814,8.533-8.533,8.533H179.2c-4.719,0-8.533-3.814-8.533-8.533V153.6c0-4.719,3.814-8.533,8.533-8.533h68.267 c4.719,0,8.533,3.814,8.533,8.533V221.867z M290.133,221.867V153.6c0-4.719,3.814-8.533,8.533-8.533h68.267 c4.719,0,8.533,3.814,8.533,8.533v68.267c0,4.719-3.814,8.533-8.533,8.533h-68.267 C293.948,230.4,290.133,226.586,290.133,221.867z"/> <rect x="307.2" y="162.133" width="51.2" height="51.2"/> <rect x="68.267" y="281.6" width="51.2" height="51.2"/> <path d="M418.133,324.267c-51.755,0-93.867,42.112-93.867,93.867S366.379,512,418.133,512S512,469.888,512,418.133 S469.888,324.267,418.133,324.267z M443.733,426.667h-25.6c-4.719,0-8.533-3.814-8.533-8.533v-51.2 c0-4.719,3.814-8.533,8.533-8.533s8.533,3.814,8.533,8.533V409.6h17.067c4.719,0,8.533,3.814,8.533,8.533 S448.452,426.667,443.733,426.667z"/> </g> </g> </g> </g>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.appointment_date }}"  disabled>
+							</div>						
+						</div>
+						<div class="col-xl-4 col-md-4 col-sm-4 col-4">
+							<label class="input-group-label">{% trans 'Visit Type' %}</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">
+										<svg class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" stroke="currentColor" 
+											onmouseover="this.setAttribute('fill', '#34c759'); this.setAttribute('stroke', '#34c759');" 
+											onmouseout="this.setAttribute('fill', '#1f9f70'); this.setAttribute('stroke', 'currentColor');" viewBox="0 0 24 24">
+											<path d="M12 2a10 10 0 0 0-10 10v4h4v-4a6 6 0 1 1 12 0v4h4v-4a10 10 0 0 0-10-10zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path>
+										</svg>
+									</span>
+								</div>
+								<input type="text" class="form-control input-group-details" value="{{ object.visitcost }}"  disabled>
+							</div>
+							
+						</div>
+																	
+					</div>
+					<div class="row mt-5 mb-4">
+						<div class="col-xl-6 col-md-6 col-sm-6 col-6">
+							<div class="row">							
+								<div class="col-xl-3 col-md-3 col-sm-3 col-3">
+									<label class="input-group-label">{% trans 'Max Patient' %}</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												<svg  class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" stroke="currentColor">
+													<circle cx="12" cy="12" r="10" stroke="#1f9f70" stroke-width="2" fill="none"/>
+													<line x1="8" y1="12" x2="16" y2="12" stroke="#1f9f70" stroke-width="2"/>
+													<line x1="12" y1="8" x2="12" y2="16" stroke="#1f9f70" stroke-width="2"/>
+												</svg>
+											</span>
+										</div>
+										<input type="text" class="form-control input-group-details" value="{{ object.max_patients }}"  disabled>
+									</div>				
+								</div>
+								<div class="col-xl-3 col-md-3 col-sm-3 col-3">
+									<label class="input-group-label">{% trans 'Order Num' %}</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												<svg  class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70">
+													<circle cx="12" cy="12" r="10" stroke="#1f9f70" stroke-width="2" fill="none"/>
+													<line x1="8" y1="12" x2="16" y2="12" stroke="#1f9f70" stroke-width="2"/>
+													<line x1="12" y1="8" x2="12" y2="16" stroke="#1f9f70" stroke-width="2"/>
+												</svg>
+											</span>
+										</div>
+										<input type="text" class="form-control input-group-details" value="{{ object.patient_order_in_day }}"  disabled>
+									</div>		
+								</div>	
+	
+								
+								<div class="col-xl-3 col-md-3 col-sm-3 col-3">
+									<label class="input-group-label">{% trans 'Exception' %}</label>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												<svg  class="input-group-svg" xmlns="http://www.w3.org/2000/svg" fill="#1f9f70" stroke="currentColor">
+													<circle cx="12" cy="12" r="10" stroke="#1f9f70" stroke-width="2" fill="none"/>
+													<line x1="8" y1="12" x2="16" y2="12" stroke="#1f9f70" stroke-width="2"/>
+													<line x1="12" y1="8" x2="12" y2="16" stroke="#1f9f70" stroke-width="2"/>
+												</svg>
+											</span>
+										</div>
+										<input type="text" class="form-control input-group-details" value="{{ object.max_exception_patients }}"  disabled>
+									</div>		
+								</div>							
+							</div>	
+							
+							<div class="row  mt-5">
+								<div class="col-xl-6 col-md-6 col-sm-6 col-6" style="height: auto; padding: 0;">
+									<label class="input-group-label">{% trans 'Appointment Status' %}</label>
+									<div class="input-group" style="height: auto; padding: 0;">
+										<div class="input-group-prepend" style="height: 43px;">
+											<span id="status-text" class="input-group-text d-flex justify-content-center align-items-center" style="background-color: {% if object.is_confirmed == 'confirmed' %}#1f9f70{% else %}#e22b2b{% endif %}; color: white; width: 120px; padding: 2px;">
+												<label style="font-weight: 600; font-size: 14px; margin: 0; color: {% if object.is_confirmed == 'unconfirmed' %}white{% endif %};">
+													{% if object.is_confirmed == 'confirmed' %}Confirmed{% else %}UnConfirmed{% endif %}
+												</label>
+											</span>
+										</div>
+										<div class="form-is-deleted-switch d-flex justify-content-center align-items-center" style="border: 1px solid #ced4da; border-radius: 4px; padding: 2px; padding-top: 8px; height: 43px; width: 100px;">
+											<label class="switch s-icons s-outline s-outline-success" style="margin: 0;">
+												
+												<input type="checkbox" name="is_confirmed"  {% if object.is_confirmed == 'confirmed' %}checked='checked'{% endif %} disabled>
+												<span class="slider round"></span>
+											</label>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-xl-6 col-md-6 col-sm-6 col-6" style="height:100px; max-height:100px;">
+							<label class="input-group-label" >{% trans 'Appointment Details' %}</label>
+							<div class="widget-content widget-content-area" style="height:100px; max-height:100px;  height: auto; padding: 0;margin:0">
+								<textarea  style="resize:none; overflow:auto;" class="form-control input-group-details"  rows="5" disabled>{{ object.details }}</textarea>
+							</div>
+						</div>						
+					</div>
+				
+						
+
+					<!-- Form Buttons -->
+					<div class="row mt-5 mb-3">
+						<div class="col-xl-3 col-md-3 col-sm-3 col-3 ">
+	
+						</div>
+						<div class="col-xl-2 col-md-2 col-sm-2 col-2 ">
+							<button type="submit" name="delete_type" value="deactive" class="btn btn-danger w-100 text-center">
+								{% trans 'UnConfirmed' %}
+							</button>
+						</div>
+						<div class="col-xl-2 col-md-2 col-sm-2 col-2 ">	
+							<button type="button" class="btn btn-primary w-100 text-center" onclick="location.href='/{{LANGUAGE_CODE}}/appointments/list'">
+								{% trans 'Cancel' %}
+							</button>
+						</div>
+						<div  class="col-xl-2 col-md-2 col-sm-2 col-2  ">
+							<button type="submit" name="delete_type" value="delete" class="btn btn-danger w-100 text-center">
+								{% trans 'Delete' %}
+							</button>
+						</div>	
+					</div>											
+				</div>	
+            </div>
+        </div>
+    </form>            
+</div>
+<!--  END CONTENT AREA  -->
+{% endblock %}

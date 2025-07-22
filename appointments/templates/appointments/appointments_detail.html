@@ -1,0 +1,126 @@
+{% extends 'run2mind/base.html'%}
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %} {% trans "Patient Detail" %} {% endblock %}
+
+{% block content_area %}
+ 
+<!--  BEGIN CONTENT AREA  -->
+<div class="experts-page mb-5">
+        <!-- start hero section -->
+        <div class="experts-hero mb-4 mb-md-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="d-flex align-items-center mb-1 mb-md-2">
+                            <h4 class="fs-4 fw-bold cl-light">
+                                 {% trans "Patient PROFILE" %}
+                            </h4>
+                            <p class="success fs-8 mx-2 mx-lg-3">RUN2MIND</p>
+                        </div>
+					</div>	
+					<div class="col-7">
+                        <h1 class="hero-title fw-600 cl-main">
+                            {% trans "Patient Details" %} 
+                        </h1>	
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end hero section -->
+
+
+        <!-- Start Experts Main Sec -->
+        <div class="experts-main">
+            <div class="container">
+                <div class="row">
+                  
+
+
+                    <!--  -->
+                    <div class="col-lg-12">
+                        <!-- Search Input -->
+                       
+
+                        
+
+
+                        <!-- Patient Card -->
+                        <div
+                            class="doctor-card d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 px-2 px-sm-3 py-3 p-md-4">
+                            <div class="doctor-content gap-3 d-flex align-items-center mb-3 mb-md-0">
+							
+								{% if object.file.url != null %}
+                                <img src="{{ object.file.url }}" alt="expert" loading="lazy" decoding="async" />
+								{% else %}
+								<img src="{% static '/run2mind/images/patient_image.jpg' %}"  alt="expert" loading="lazy" decoding="async" />
+								{% endif %}
+								
+								
+								
+                                <div class="text">
+                                    <h4 class="fs-4 fw-600 cl-main">
+                                       
+										{{ object.name }} 
+										
+                                    </h4>
+                                    <h6 class="fs-7 fw-600 cl-secondary">
+                                        
+										{{ object.job }}  
+										
+                                    </h6>
+
+                                    <p class="fs-6 fw-700 py-1 cl-darkLight">
+                                       {% trans "Birthdate: " %}{{ object.birthdate }}  
+                                    </p>
+
+                                    
+
+                                    <h6 class="date fs-6 fw-500">
+                                        {% trans "Phone: " %} {{ object.phone }}  
+                                    </h6>
+                                </div>
+
+                            </div>
+
+                            <div class="doctor-actions text-center">
+                                
+									<a  href="{% url 'chatnests:send_message' receiver_id=object.id %}"  style="background-color:#f2f2f2;"
+										class="btn-main  d-block  px-lg-4 fs-7 fw-600 cl-secondary cursor-pointer" data-receiver-id="{{ object.id }}">
+										{% trans "Send Message" %}
+									</a>
+
+                            </div>
+                        </div>
+                    </div>
+                   
+  <!-- Tabs navs -->
+  <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="simple-tab-0" data-bs-toggle="tab" href="#simple-tabpanel-0" role="tab" aria-controls="simple-tabpanel-0" aria-selected="true">ABOUT Patient</a>
+            </li>
+           
+        </ul>
+        <div class="tab-content pt-5" id="tab-content">
+            <div class="tab-pane active" id="simple-tabpanel-0" role="tabpanel" aria-labelledby="simple-tab-0">
+                <p>
+					{{ object.details }} 
+				</p>
+            </div>    
+        </div>
+                  
+
+              </div>
+            </div>
+        </div>
+        <!-- End of Experts Main Sec -->
+
+    </div>
+</div>
+<!--  END CONTENT AREA  -->
+
+{% endblock %}

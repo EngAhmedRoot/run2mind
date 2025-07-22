@@ -1,0 +1,224 @@
+.experts-page {
+    overflow: hidden;
+    .experts-hero {
+        padding-top: 10rem;
+        .success {
+            border-radius: 10px;
+        }
+        .hero-title {
+            font-size: 38px !important;
+        }
+    }
+
+    // Style Filter
+    .experts-filter {
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        .form-check-input {
+            box-shadow: none;
+            border-color: #dee8f5;
+
+            &:checked {
+                background-color: $main-color;
+                border-color: $main-color;
+            }
+        }
+        .experts-filter_header {
+            background-color: $main-color;
+        }
+        .filter-body {
+            .form-check-input {
+                margin-inline-end: 0.4rem;
+            }
+        }
+
+        // style price slider
+        .rs-container {
+            .rs-scale span {
+                display: none;
+            }
+            .rs-tooltip {
+                color: $main-color;
+                border: none;
+                transform: translate(-50%, 25px);
+                font-size: 14px;
+                padding: 0;
+                background: transparent;
+            }
+
+            .rs-bg {
+                background-color: #cccccc;
+                border: none;
+                height: 5px;
+            }
+
+            .rs-pointer {
+                border-radius: 50%;
+                height: 20px;
+                width: 20px;
+                background-color: $main-color;
+                border: none;
+                box-shadow: none;
+                top: -3px;
+                &::after,
+                &::before {
+                    display: none;
+                }
+            }
+            .rs-selected {
+                background-color: $main-color;
+                border: none;
+                height: 5px;
+            }
+        }
+
+        .actions {
+            border-top: 1px solid #f4f4f4;
+        }
+    }
+
+    // Doctor Card
+    .doctor-card {
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.05);
+        .doctor-content {
+            img {
+                width: 170px;
+                height: 160px;
+                object-fit: cover;
+                // border-radius: 194% 254% 241% 385%;
+                border-radius: 180% 280% 200% 180%;
+                margin-inline-end: 0.7rem;
+            }
+            .date {
+                color: #bd3d44;
+            }
+        }
+    }
+
+    // filter-mob
+    .filter-mob {
+        background-color: $main-color;
+        position: fixed;
+        inset: auto 0 1rem 0;
+        width: max-content;
+        z-index: 5;
+        border-radius: 24px;
+        box-shadow: 0px 2px 100px 0px rgba(176, 166, 166, 0.3);
+    }
+
+    // MOBILE ONLY
+    @media screen and (max-width: 400px) {
+        // Style Filter
+        .experts-filter {
+            border-radius: 8px;
+
+            .filter-body {
+                .form-check-input {
+                    margin-inline-end: 0.3rem;
+                }
+            }
+        }
+
+        // Doctor Card
+        .doctor-card {
+            border-radius: 6px;
+            box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.05);
+            .doctor-content {
+                img {
+                    width: 120px;
+                    height: 105px;
+                    margin-inline-end: 0.5rem;
+                }
+            }
+            .doctor-actions{
+                width: 100%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        // Style Filter
+        .experts-filter {
+            position: fixed;
+            inset: 0 0 0;
+            z-index: 99999;
+            border-radius: 0;
+            overflow: auto;
+            height: 100%;
+            &::-webkit-scrollbar {
+                width: 0em;
+            }
+            transform: translateY(100%);
+            @include ease;
+            &.show{
+            transform: translateY(0%);
+            }
+           
+        }
+    }
+
+    @media screen and (min-width: 991px) {
+        .experts-hero {
+            .hero-title {
+                font-size: 44px !important;
+            }
+        }
+        // Style Filter
+        .experts-filter {
+            border-radius: 18px;
+        }
+        // Doctor Card
+        .doctor-card {
+            @include ease;
+            &:hover {
+                box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        .experts-hero {
+            .hero-title {
+                font-size: 65px;
+            }
+        }
+
+        // Style Filter
+        .experts-filter {
+            border-radius: 20px;
+
+            .filter-body {
+                .form-check-input {
+                    width: 19px;
+                    height: 19px;
+                }
+            }
+
+            // style price slider
+            .rs-container {
+                .rs-tooltip {
+                    font-size: 20px;
+                }
+                .rs-pointer {
+                    height: 26px;
+                    width: 26px;
+                }
+            }
+        }
+
+        // Doctor Card
+        .doctor-card {
+            .doctor-content {
+                img {
+                    width: 170px;
+                    height: 160px;
+                    margin-inline-end: 1rem;
+                }
+            }
+        }
+    }
+}
