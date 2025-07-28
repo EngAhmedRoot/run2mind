@@ -19,3 +19,5 @@ services:
         value: your-secret-key-here
       - key: ALLOWED_HOSTS
         value: run2mind-django.onrender.com
+      - key: DEBUG
+        value: 'False'  # تأكد إنك معطل الـ DEBUG
