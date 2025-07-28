@@ -132,11 +132,10 @@ WAIT_AI_SETTINGS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD
-        'NAME': 'run2mind',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'NAME': 'run2mind_db',
+        'USER': 'run2mind_db_user',
+        'PASSWORD': 'OoqSoYMQvg0K8a6bqNy5l0U1zaZCJCv7',
+        'HOST': 'dpg-d1vt0mer433s7381b9tg-a.oregon-postgres.render.com',
         'PORT': '5432',
 
         'options': {
@@ -144,13 +143,8 @@ DATABASES = {
             'collation': 'utf8_general_ci',
             'use_unicode': True,
         }
-=======
-        'NAME': 'run2mind_db',
-        'USER': 'run2mind_db_user',
-        'PASSWORD': 'OoqSoYMQvg0K8a6bqNy5l0U1zaZCJCv7',
-        'HOST': 'dpg-d1vt0mer433s7381b9tg-a.oregon-postgres.render.com',
-        'PORT': '5432',
->>>>>>> 84c1393acdf16e41f69d4bd095868a7f3d18b486
+
+        
     }
 }
 
