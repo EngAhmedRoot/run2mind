@@ -241,12 +241,21 @@ SOCIAL_AUTH_PIPELINE = (
 
 
 
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # جمع الاستاتيك هنا
+
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-STATIC_URL = '/assets/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+#STATIC_URL = '/assets/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
