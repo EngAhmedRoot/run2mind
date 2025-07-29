@@ -273,5 +273,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login:login'
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
