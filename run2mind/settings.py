@@ -137,16 +137,9 @@ DATABASES = {
         'PASSWORD': 'OoqSoYMQvg0K8a6bqNy5l0U1zaZCJCv7',
         'HOST': 'dpg-d1vt0mer433s7381b9tg-a.oregon-postgres.render.com',
         'PORT': '5432',
-
-        'options': {
-            'charset': 'utf8',
-            'collation': 'utf8_general_ci',
-            'use_unicode': True,
-        }
-
-        
     }
 }
+
 
 
 
@@ -272,8 +265,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login:login'
 
-import dj_database_url
-
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-}
