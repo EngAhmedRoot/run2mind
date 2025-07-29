@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 import os.path
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
@@ -233,10 +234,6 @@ SOCIAL_AUTH_PIPELINE = (
 
 
 
-
-import os
-from pathlib import Path
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # جمع الاستاتيك هنا
@@ -252,6 +249,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # جمع الاستاتيك
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 
 # Media files (Uploaded files)
