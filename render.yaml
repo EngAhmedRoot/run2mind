@@ -16,8 +16,15 @@ services:
           name: run2mind-db
           property: connectionString
       - key: SECRET_KEY
-        value: your-secret-key-here
+        value: h_OS9ipa5I_NkiMjoew4xQIR2bJ_roveaxczI27KQndfbqb7Plf8mpc9VgJz1yt4tqo
       - key: ALLOWED_HOSTS
         value: run2mind-django.onrender.com
       - key: DEBUG
-        value: 'False'  # تأكد إنك معطل الـ DEBUG
+        value: 'False'
+
+databases:
+  - name: run2mind-db
+    databaseName: run2mind
+    user: run2mind_user
+    plan: free
+    region: oregon
