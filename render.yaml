@@ -4,9 +4,18 @@ services:
     env: python
     buildCommand: |
       pip install -r requirements.txt
-      python manage.py collectstatic --noinput
       python manage.py makemigrations --noinput
       python manage.py migrate --noinput
+      python manage.py collectstatic --noinput
+      python manage.py initialize_data_in_run2mind
+      python manage.py shell -c "
+from django.contrib.auth import get_user_model;
+User = get_user_model();
+email = 'admin@admin.com';
+password = '123456';
+username = 'admin';
+if not User.objects.filter(username=username).exists():
+    User.objects.create_superuser(username=username, email=email, password=password)"
     startCommand: gunicorn run2mind.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
