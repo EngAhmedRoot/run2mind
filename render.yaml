@@ -28,3 +28,5 @@ databases:
     user: run2mind_user
     plan: free
     region: oregon
+
+staticPublishPath: staticfiles
