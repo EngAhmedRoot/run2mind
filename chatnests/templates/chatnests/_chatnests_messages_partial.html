@@ -14,8 +14,7 @@
 		
 		<li class="d-flex justify-content-start mb-3" >
 			<div class="d-flex w-100 justify-content-start"> 
-				
-				<img src="{{ message.otherparty_avatar|default:'/static/run2mind/images/profile_image.jpg' }}" alt="avatar" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" width="60">
+				<img src="{% static '/run2mind/images/profile_image.jpg' %}" alt="avatar" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" width="60">
 		
                 <div class="card w-100" style="width:60% !important" >
                     <div class="card-header d-flex justify-content-between p-2 success">
@@ -46,7 +45,7 @@
 					</div>
 				</div>
 				
-				<img src="{{ message.otherparty_avatar|default:'/static/run2mind/images/profile_image.jpg' }}" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">
+				<img src="{% static '/run2mind/images/profile_image.jpg' %}" alt="avatar" class="rounded-circle d-flex align-self-start ms-2 shadow-1-strong" width="60">
 
 				
 			</div>

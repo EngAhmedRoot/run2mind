@@ -48,7 +48,7 @@
 													<div class="d-flex flex-row">
 	   
 														{% if message.otherparty_avatar.url != null %}
-															<img src="{{ message.otherparty_avatar.url }}" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" style="height:80px;width:80px;" alt="avatar" >
+															<img src="{% static '/run2mind/images/profile_image.jpg' %}" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" style="height:80px;width:80px;" alt="avatar" >
 														{% else %}
 															<img src="{% static '/run2mind/images/profile_image.jpg' %}" class="rounded-circle d-flex align-self-start me-2 shadow-1-strong" style="height:80px;width:80px;" alt="avatar" >
 														{% endif %}
