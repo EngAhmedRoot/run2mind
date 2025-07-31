@@ -47,7 +47,7 @@
                             <div class="doctor-content gap-3 d-flex align-items-center mt-3 mb-3 mb-md-0">
 							
 								{% if profile.file.url != null %}
-                                <img src="{{ profile.file.url }}" alt="expert" loading="lazy" decoding="async" />
+                                <img src="{% static 'run2mind/images/experts/expert_image_' %}{{  customuser.expert_profile.id }}.jpg" alt="expert" loading="lazy" decoding="async" />
 								{% else %}
 								<img src="{% static '/run2mind/images/expert_image.jpg' %}"  alt="expert" loading="lazy" decoding="async" />
 								{% endif %}
