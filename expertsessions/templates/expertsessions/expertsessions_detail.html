@@ -60,7 +60,7 @@
                         <div class="doctor-content gap-3 d-flex align-items-center mb-3 mb-md-0">
 							
 							{% if object.expert.file.url != null %}
-								<img src="{{ object.expert.file.url }}" alt="expert" loading="lazy" decoding="async" />
+								<img src="{% static 'run2mind/images/experts/expert_image_' %}{{ object.expert.id }}.jpg" alt="expert" loading="lazy" decoding="async" />
 							{% else %}
 								<img src="{% static '/run2mind/images/expert_image.jpg' %}"  alt="expert" loading="lazy" decoding="async" />
 							{% endif %}
