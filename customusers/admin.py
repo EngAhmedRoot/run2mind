@@ -3,6 +3,18 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from .models import Customusers
 
+# استيراد الموديلات اللي هنخفيها من الواجهة
+from social_django.models import Association, Nonce, UserSocialAuth
+from expertsessions.models import Languages, Timeslots, Sessiondurations, Availabletimes
+
+# إلغاء تسجيلهم من الـ admin panel
+for model in [Association, Nonce, UserSocialAuth, Languages, Timeslots, Sessiondurations, Availabletimes]:
+    try:
+        admin.site.unregister(model)
+    except admin.sites.NotRegistered:
+        pass
+
+
 class CustomusersAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
@@ -13,28 +25,22 @@ class CustomusersAdmin(UserAdmin):
         (_('Profile Image'), {'fields': ('file',)}),
     )
 
-    # تخصيص الحقول عند إضافة مستخدم جديد
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'password1', 'password2', 'user_type','file'),
+            'fields': ('username', 'password1', 'password2', 'user_type', 'file'),
         }),
     )
 
-    # تخصيص الأعمدة المعروضة في قائمة المستخدمين
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'user_type')
-
-    # تخصيص الحقول التي يمكن البحث فيها
     search_fields = ('username', 'first_name', 'last_name', 'email')
-
-    # تخصيص ترتيب المستخدمين في القائمة
     ordering = ('username',)
 
 
-# تسجيل النموذج في لوحة الإدارة
+# تسجيل المستخدمين المخصصين في لوحة الإدارة
 admin.site.register(Customusers, CustomusersAdmin)
 
-# تخصيص عنوان الموقع في لوحة الإدارة
+# تخصيص شكل لوحة التحكم
 admin.site.site_title = _("Site administration")
 admin.site.site_header = _("Custom Users Administration")
 admin.site.index_title = _("Welcome to the Custom Users Admin")
