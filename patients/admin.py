@@ -19,7 +19,7 @@ class PatientsAdmin(admin.ModelAdmin):
     # Fields to display in the detail/edit view
     fieldsets = (
         (None, {
-            'fields': ('user', 'file_no', 'name', 'birthdate', 'phone', 'mobile', 'email', 'gender')
+            'fields': ('user', 'file_no', 'name', 'birthdate', 'phone', 'mobile', 'email', 'gender', 'file')
         }),
         ('Professional Details', {
             'fields': ('job', 'details')
