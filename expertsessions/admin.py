@@ -1,36 +1,36 @@
 from django.contrib import admin
 from .models import Languages, Sessiondurations, Timeslots, Availabletimes, Expertsessions
 
-@admin.register(Languages)
-class LanguageAdmin(admin.ModelAdmin):
-    list_display = ('language_code',)
-    search_fields = ('language_code',)
-    ordering = ('language_code',)
-    list_filter = ('language_code',)
+#@admin.register(Languages)
+#class LanguageAdmin(admin.ModelAdmin):
+    #list_display = ('language_code',)
+    #search_fields = ('language_code',)
+    #ordering = ('language_code',)
+    #list_filter = ('language_code',)
 
 
-@admin.register(Sessiondurations)
-class SessiondurationsAdmin(admin.ModelAdmin):
-    list_display = ('duration',)
-    search_fields = ('duration',)
-    ordering = ('duration',)
-    list_filter = ('duration',)
+#@admin.register(Sessiondurations)
+#class SessiondurationsAdmin(admin.ModelAdmin):
+    #list_display = ('duration',)
+    #search_fields = ('duration',)
+    #ordering = ('duration',)
+    #list_filter = ('duration',)
 
 
-@admin.register(Timeslots)
-class TimeslotsAdmin(admin.ModelAdmin):
-    list_display = ('start_time', 'end_time')
-    search_fields = ('start_time', 'end_time')
-    ordering = ('start_time',)
-    list_filter = ('start_time', 'end_time',)
+#@admin.register(Timeslots)
+#class TimeslotsAdmin(admin.ModelAdmin):
+    #list_display = ('start_time', 'end_time')
+    #search_fields = ('start_time', 'end_time')
+    #ordering = ('start_time',)
+    #list_filter = ('start_time', 'end_time',)
 
 
-@admin.register(Availabletimes)
-class AvailabletimesAdmin(admin.ModelAdmin):
-    list_display = ('day_of_week', 'timeslot') 
-    search_fields = ('day_of_week', 'timeslot__start_time', 'timeslot__end_time') 
-    ordering = ('day_of_week',)  # إزالة expert
-    list_filter = ('day_of_week', 'timeslot',) 
+#@admin.register(Availabletimes)
+#class AvailabletimesAdmin(admin.ModelAdmin):
+    #list_display = ('day_of_week', 'timeslot') 
+    #search_fields = ('day_of_week', 'timeslot__start_time', 'timeslot__end_time') 
+    #ordering = ('day_of_week',)  # إزالة expert
+    #list_filter = ('day_of_week', 'timeslot',) 
 
 
 
