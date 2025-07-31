@@ -8,7 +8,7 @@
     <div
         class="doctor-card d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 px-2 px-sm-3 py-3 p-md-4">
         <div class="doctor-content gap-3 d-flex align-items-center mb-3 mb-md-0">
-			{% if patient.customusers.file.url != null %}
+			{% if patient.file.url != null %}
                 <img src="{% static 'run2mind/images/patients/patient_image_' %}{{ patient.id }}.jpg" alt="patient" loading="lazy" decoding="async" />
             {% else %}
 				<img src="{% static '/run2mind/images/patient_image.jpg' %}" alt="patient" loading="lazy" decoding="async" />
